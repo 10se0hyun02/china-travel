@@ -18,8 +18,8 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
       },
       manifest: {
-        name: '우리들의 상해 여행 ✈️',
-        short_name: '상해여행',
+        name: '상하이 트래블 ✈️',
+        short_name: '상하이 트래블',
         description: '오프라인에서도 완벽 구동되는 커플 여행 가이드',
         lang: 'ko',
         display: 'standalone',

@@ -1,6 +1,6 @@
 export const travelData = {
   meta: {
-    title: "우리들의 상해 여행 ✈️"
+    title: "상하이 트래블 ✈️"
     , startDate: "2026-10-01"
     , endDate: "2026-10-04"
     , anniversaryDate: "2024-05-12"
