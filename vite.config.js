@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  // GitHub Pages 서브경로 배포 (https://10se0hyun02.github.io/china-travel/)
+  base: '/china-travel/',
   plugins: [
     react(),
     tailwindcss(),
@@ -14,7 +16,6 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,png,jpg,svg,webp}'],
         // 고덕지도 캡처 이미지가 클 수 있어 프리캐시 한도 상향
         maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
-        navigateFallback: '/index.html',
       },
       manifest: {
         name: '우리들의 상해 여행 ✈️',
@@ -25,8 +26,8 @@ export default defineConfig({
         theme_color: '#fb7185',
         background_color: '#fff1f2',
         icons: [
-          { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+          { src: 'icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'icons/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
         ],
       },
     }),

@@ -23,6 +23,9 @@ export default function ImageModal({ open, onClose, title, image, text }) {
 
   if (!open) return null;
 
+  // travelData의 절대 경로("/assets/...")를 배포 base(서브경로 포함)에 맞게 보정
+  const src = image && image.startsWith('/') ? import.meta.env.BASE_URL + image.slice(1) : image;
+
   if (text) {
     return (
       <div
@@ -59,7 +62,7 @@ export default function ImageModal({ open, onClose, title, image, text }) {
         </div>
       ) : (
         <img
-          src={image}
+          src={src}
           alt={title || '이미지 크게 보기'}
           className="max-w-full max-h-[80vh] object-contain rounded-xl"
           onError={() => setFailed(true)}
