@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Zero-Data: 외부 폰트 없이 시스템 폰트 스택 */
+html {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #fdf2f8; /* 앱 프레임 바깥 여백도 커플 톤 유지 */
+}
