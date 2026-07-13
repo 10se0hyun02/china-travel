@@ -4,8 +4,6 @@ import Dashboard from './pages/Dashboard.jsx';
 import Itinerary from './pages/Itinerary.jsx';
 import Places from './pages/Places.jsx';
 import Archive from './pages/Archive.jsx';
-import { travelData } from './data/travelData.js';
-
 // Zero-Data: 라우터 라이브러리 없이 상태 기반 탭 전환 — 번들 최소화 + 완전 오프라인
 const PAGES = {
   dashboard: Dashboard,
@@ -19,7 +17,7 @@ export default function App() {
   const Page = PAGES[tab];
 
   return (
-    <Layout title={travelData.meta.title} activeTab={tab} onTabChange={setTab}>
+    <Layout activeTab={tab} onTabChange={setTab}>
       <Page />
     </Layout>
   );

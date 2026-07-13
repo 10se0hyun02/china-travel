@@ -5,14 +5,10 @@ const TABS = [
   { id: 'archive', label: '보관함', icon: '🎒' },
 ];
 
-export default function Layout({ title, activeTab, onTabChange, children }) {
+export default function Layout({ activeTab, onTabChange, children }) {
   return (
     <div className="max-w-md mx-auto bg-rose-50/30 flex flex-col min-h-screen shadow-lg">
-      <header className="sticky top-0 z-30 bg-gradient-to-r from-rose-100 to-sky-100 px-4 py-3 text-center shadow-sm">
-        <h1 className="text-lg font-bold text-rose-500">{title}</h1>
-      </header>
-
-      <main className="flex-1 px-4 py-4 pb-24">{children}</main>
+      <main className="flex-1 px-4 pt-6 pb-24">{children}</main>
 
       <nav className="fixed bottom-0 inset-x-0 z-30 mx-auto max-w-md bg-white/95 backdrop-blur border-t border-rose-100">
         <ul className="flex">
