@@ -9,13 +9,14 @@ export default function AccordionCard({ icon, title, subtitle, defaultOpen = fal
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left"
+        className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left"
       >
-        <div className="min-w-0">
-          <p className="font-bold text-gray-800 truncate">
-            {icon} {title}
-          </p>
-          {subtitle && <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>}
+        <div className="min-w-0 flex items-start gap-2">
+          <span className="text-lg leading-none shrink-0">{icon}</span>
+          <div className="min-w-0">
+            <p className="font-bold text-[15px] text-gray-800 truncate">{title}</p>
+            {subtitle && <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>}
+          </div>
         </div>
         <span
           className={`shrink-0 text-gray-300 text-xs transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
@@ -24,7 +25,7 @@ export default function AccordionCard({ icon, title, subtitle, defaultOpen = fal
         </span>
       </button>
 
-      {open && <div className="px-4 pb-4 pt-1 border-t border-rose-50 space-y-3">{children}</div>}
+      {open && <div className="px-4 pb-4 pt-2 border-t border-rose-50">{children}</div>}
     </div>
   );
 }

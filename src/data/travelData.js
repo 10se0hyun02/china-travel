@@ -5,6 +5,13 @@ export const travelData = {
     , endDate: "2026-07-19"
     , krwPerCny: 190 // 1위안=원 기준환율 기본값. 출국 전 앱 내 "환율 수정"으로 최신값으로 갱신 권장
   }
+  // 2026-07-14 기준 예보 스냅샷(오프라인 앱이라 실시간 조회 대신 정적으로 저장). 출발 전 최신 예보로 갱신 권장
+  , weather: [
+    { day: 1, date: "07/16 (목)", high: 37, low: 29, condition: "haze", label: "스모키 헤이즈" }
+    , { day: 2, date: "07/17 (금)", high: 37, low: 28, condition: "rain-possible", label: "소나기 가능" }
+    , { day: 3, date: "07/18 (토)", high: 36, low: 27, condition: "rain-possible", label: "소나기 가능" }
+    , { day: 4, date: "07/19 (일)", high: 32, low: 26, condition: "light-rain", label: "가벼운 소나기" }
+  ]
   // 장소 마스터 데이터 (한자, 주소 중복 방지를 위해 이곳에 통합)
   , spots: {
     "pudong_airport": { name_ko: "상해 푸동 국제공항", name_zh: "上海浦东国际机场", addr: "浦东新区" }

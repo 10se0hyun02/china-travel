@@ -4,10 +4,11 @@ import ImageModal from '../components/ImageModal.jsx';
 import CurrencyConverter from '../components/CurrencyConverter.jsx';
 import MangoCouple from '../components/MangoCouple.jsx';
 import CopyAddressButton from '../components/CopyAddressButton.jsx';
+import WeatherForecast from '../components/WeatherForecast.jsx';
 
 export default function Dashboard() {
   const [modal, setModal] = useState(null);
-  const { meta, spots } = travelData;
+  const { meta, spots, weather } = travelData;
 
   const hotel = spots.hotel_jinglai;
 
@@ -20,6 +21,8 @@ export default function Dashboard() {
           {meta.startDate} ~ {meta.endDate}
         </p>
       </div>
+
+      <WeatherForecast days={weather} />
 
       <CurrencyConverter />
 
