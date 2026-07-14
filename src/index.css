@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* 쨍한 기본 Tailwind 팔레트 대신 그레이를 섞은 파스텔톤으로 전역 오버라이드.
+   rose/sky/amber 유틸리티 클래스는 코드 수정 없이 전부 이 톤을 따른다. */
+@theme {
+  --color-rose-50: #faf6f6;
+  --color-rose-100: #f3e9ea;
+  --color-rose-200: #e8d5d7;
+  --color-rose-300: #d6b8bb;
+  --color-rose-400: #c2969b;
+  --color-rose-500: #ab7b81;
+
+  --color-sky-50: #f4f6f7;
+  --color-sky-100: #e6ebee;
+  --color-sky-200: #cfd9de;
+  --color-sky-400: #93a8b3;
+  --color-sky-500: #7c93a0;
+  --color-sky-600: #66808f;
+
+  --color-amber-50: #f9f6f0;
+  --color-amber-100: #f0e8d8;
+  --color-amber-300: #d9c49a;
+  --color-amber-500: #b8975f;
+  --color-amber-600: #9c7d4c;
+}
+
 /* Zero-Data: 외부 폰트 없이 시스템 폰트 스택 */
 html {
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
@@ -8,5 +32,38 @@ html {
 }
 
 body {
-  background-color: #fdf2f8; /* 앱 프레임 바깥 여백도 커플 톤 유지 */
+  background-color: #faf6f6; /* 앱 프레임 바깥 여백도 파스텔 톤 유지 */
+}
+
+/* 홈 탭 망고젤리 커플(MangoCouple) 애니메이션 */
+@keyframes mango-bounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.animate-mango-bounce-left {
+  animation: mango-bounce 1.6s ease-in-out infinite;
+}
+
+.animate-mango-bounce-right {
+  animation: mango-bounce 1.6s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+
+@keyframes mango-sparkle {
+  0% { transform: translateY(6px) scale(0.8); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-18px) scale(1.1); opacity: 0; }
+}
+
+.animate-mango-sparkle {
+  animation: mango-sparkle 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mango-bounce-left,
+  .animate-mango-bounce-right,
+  .animate-mango-sparkle {
+    animation: none;
+  }
 }

@@ -5,19 +5,28 @@ import ImageModal from '../components/ImageModal.jsx';
 
 export default function Places() {
   const [modal, setModal] = useState(null);
-  const { spots } = travelData;
+  const { spots, timelines } = travelData;
 
-  // 커플 스팟(isTarget)을 상단에 고정
-  const sorted = Object.entries(spots).sort(([, a], [, b]) => (b.isTarget ? 1 : 0) - (a.isTarget ? 1 : 0));
+  // 일정 탭에 등장하는 순서 그대로 정렬 + 스팟이 몇 일차에 방문 예정인지 매핑
+  const order = [];
+  const daysBySpot = {};
+  for (const day of timelines) {
+    for (const item of day.items) {
+      if (!order.includes(item.spotId)) order.push(item.spotId);
+      (daysBySpot[item.spotId] ??= new Set()).add(day.day);
+    }
+  }
+  const rest = Object.keys(spots).filter((id) => !order.includes(id));
+  const sortedIds = [...order, ...rest];
 
   return (
     <div className="space-y-3">
-      {sorted.map(([id, spot]) => (
+      {sortedIds.map((id) => (
         <PlaceCard
           key={id}
-          spot={spot}
+          spot={spots[id]}
+          days={daysBySpot[id] ? [...daysBySpot[id]].sort((a, b) => a - b) : null}
           onShowDriver={(s) => setModal({ text: [s.name_zh, s.addr] })}
-          onShowMap={(s) => setModal({ title: s.name_ko, image: s.map })}
         />
       ))}
 

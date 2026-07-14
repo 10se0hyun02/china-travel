@@ -1,3 +1,5 @@
+import CopyAddressButton from './CopyAddressButton.jsx';
+
 const TYPE_ICONS = {
   transport: '🚄',
   hotel: '🏨',
@@ -7,7 +9,7 @@ const TYPE_ICONS = {
 };
 
 /** 일정 탭 타임라인 카드. spot은 travelData.spots에서 spotId로 해석해 내려받는다. */
-export default function TimelineItem({ item, spot, isLast, onShowDriver, onShowMap }) {
+export default function TimelineItem({ item, spot, isLast, onShowDriver }) {
   return (
     <div className="flex gap-3">
       {/* 타임라인 축 */}
@@ -38,14 +40,11 @@ export default function TimelineItem({ item, spot, isLast, onShowDriver, onShowM
 
         {item.memo && <p className="mt-1.5 text-sm text-gray-600">💬 {item.memo}</p>}
 
-        {spot?.map && (
-          <button
-            type="button"
-            onClick={() => onShowMap(spot)}
+        {spot?.addr && (
+          <CopyAddressButton
+            address={spot.addr}
             className="mt-2 text-xs font-bold text-rose-400 bg-rose-50 rounded-full px-3 py-1.5"
-          >
-            🗺️ 지도 캡처 보기
-          </button>
+          />
         )}
       </div>
     </div>

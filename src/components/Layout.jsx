@@ -1,8 +1,8 @@
 const TABS = [
-  { id: 'dashboard', label: '홈', icon: '🏠' },
-  { id: 'itinerary', label: '일정', icon: '🗓️' },
-  { id: 'places', label: '스팟', icon: '📍' },
-  { id: 'archive', label: '보관함', icon: '🎒' },
+  { id: 'dashboard', label: '홈' },
+  { id: 'itinerary', label: '일정' },
+  { id: 'places', label: '스팟' },
+  { id: 'archive', label: '보관함' },
 ];
 
 export default function Layout({ activeTab, onTabChange, children }) {
@@ -17,11 +17,10 @@ export default function Layout({ activeTab, onTabChange, children }) {
               <button
                 type="button"
                 onClick={() => onTabChange(tab.id)}
-                className={`w-full py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex flex-col items-center gap-0.5 text-xs transition-colors ${
+                className={`w-full py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] text-sm transition-colors ${
                   activeTab === tab.id ? 'text-rose-500 font-bold' : 'text-gray-400'
                 }`}
               >
-                <span className="text-xl leading-none">{tab.icon}</span>
                 {tab.label}
               </button>
             </li>

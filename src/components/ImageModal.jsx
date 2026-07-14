@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 /**
  * 크게 보기 팝업 (명세서 2번의 ImageModal).
- * - image 전달 시: 바우처/지도 이미지 뷰어. 모달이 열릴 때만 <img>를 렌더링하는
+ * - image 전달 시: 바우처 이미지 뷰어. 모달이 열릴 때만 <img>를 렌더링하는
  *   레이지 로딩 규칙(명세서 4번)의 실행 지점 — 목록 화면에는 <img>가 존재하지 않는다.
  * - text 전달 시: Show Driver Mode. 화이트 배경 풀스크린에 중문 텍스트만
  *   text-4xl font-bold로 표시해 기사님께 제시.

@@ -67,9 +67,7 @@ export default function CurrencyConverter() {
           <span className="text-sm text-gray-500 whitespace-nowrap">원</span>
         </div>
       ) : (
-        <p className="text-xs text-gray-400 mb-3">
-          1위안 ≈ {rate.toLocaleString()}원 · 출국 전 인터넷 될 때 최신 환율로 갱신해두세요
-        </p>
+        <p className="text-xs text-gray-400 mb-3">1위안 ≈ {rate.toLocaleString()}원</p>
       )}
 
       <div className="space-y-2">

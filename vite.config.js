@@ -23,8 +23,8 @@ export default defineConfig({
         description: '오프라인에서도 완벽 구동되는 커플 여행 가이드',
         lang: 'ko',
         display: 'standalone',
-        theme_color: '#fb7185',
-        background_color: '#fff1f2',
+        theme_color: '#ab7b81',
+        background_color: '#faf6f6',
         icons: [
           { src: 'icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },

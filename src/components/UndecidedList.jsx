@@ -1,6 +1,6 @@
 /**
  * 아직 확정 안 된 일정 후보 — 확정된 타임라인과 구분되도록 점선 카드로 별도 표시.
- * spotIds로 참조된 장소들의 요약 정보만 보여주고, 지도/기사님 모달은 스팟 탭에서 확인하도록 안내.
+ * spotIds로 참조된 장소들의 요약 정보만 보여주고, 상세 정보·기사님 모달은 스팟 탭에서 확인하도록 안내.
  */
 export default function UndecidedList({ undecided, spots }) {
   if (!undecided?.length) return null;
@@ -29,7 +29,7 @@ export default function UndecidedList({ undecided, spots }) {
             })}
           </div>
           <p className="mt-2 text-[11px] text-amber-500">
-            상세 정보·지도는 스팟 탭에서 볼 수 있어요. 정해지면 일정 탭에 반영해요!
+            상세 정보는 스팟 탭에서 볼 수 있어요. 정해지면 일정 탭에 반영해요!
           </p>
         </div>
       ))}
