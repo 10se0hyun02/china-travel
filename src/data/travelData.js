@@ -8,7 +8,7 @@ export const travelData = {
   // 장소 마스터 데이터 (한자, 주소 중복 방지를 위해 이곳에 통합)
   , spots: {
     "pudong_airport": { name_ko: "상해 푸동 국제공항", name_zh: "上海浦东国际机场", addr: "浦东新区" }
-    , "hotel_jinglai": { name_ko: "징라이 호텔 부쉐", name_zh: "京莱酒店·轻奢", addr: "上海市静安区曲阜路9弄66号", tip: "曲阜路역 5번 출구 도보권, 인민광장 도보 5분" }
+    , "hotel_jinglai": { name_ko: "징라이 호텔 부쉐 (징안사 남경서로점)", name_zh: "景莱酒店·不舍 - 上海静安寺南京西路店", addr: "上海市静安区南京西路931号", tip: "징안사(静安寺)·상해기차역 인근" }
     , "nanjing_road": { name_ko: "난징동루 보행가", name_zh: "南京东路步行街", addr: "上海市黄浦区南京东路", tip: "7월 낮엔 폭염 — 오후 4~5시 이후 걷기 추천" }
     , "the_bund": { name_ko: "와이탄", name_zh: "外滩(中山东一路)", addr: "上海市黄浦区中山东一路", tip: "건물 조명은 보통 19~22(23)시 점등, 상해 대표 야경 데이트" }
     , "oriental_pearl": { name_ko: "동방명주", name_zh: "东方明珠广播电视塔", addr: "上海市浦东新区世纪大道1号", tip: "와이탄→푸동은 황푸강 도도륜 페리(2위안) 추천, 저렴하고 낭만적" }
@@ -64,12 +64,31 @@ export const travelData = {
     }
   ]
   , archive: {
-    vouchers: [
-      { id: "v_hotel", title: "호텔 바우처", image: "/assets/vouchers/hotel.webp" }
-    ]
-    // 클룩 예약 바우처 요약 — 원문 PDF는 길어서 접이식 카드로 핵심만 정리
-    , voucherDetails: [
+    // 예약 바우처 요약 — 원문 PDF는 길어서 접이식 카드로 핵심만 정리
+    voucherDetails: [
       {
+        id: "hotel_info"
+        , icon: "🏨"
+        , title: "징라이 호텔 부쉐 예약정보"
+        , subtitle: "2026-07-16 ~ 07-19 (3박) · 예약번호 26013020238662870"
+        , sections: [
+          { heading: "체크인 / 체크아웃", lines: ["체크인 2026-07-16", "체크아웃 2026-07-19"] }
+          , { heading: "객실", lines: ["Superior King Room 1개", "성인 2명", "금연, 킹사이즈 베드"] }
+          , { heading: "투숙객", lines: ["Minkyeom Kim"] }
+          , { heading: "포함 서비스", lines: ["무료 Wi-Fi"] }
+          , {
+            heading: "취소 정책"
+            , lines: [
+              "2026-07-13 전 취소 시 무료 취소"
+              , "체크인 3일 이내 취소 시 총 숙박 요금 전액 청구"
+              , "노쇼 시 예약 요금 100% 청구"
+            ]
+          }
+          , { heading: "예약처", lines: ["Agoda · 결제 MasterCard 끝자리 1152 (약 USD 374)"] }
+          , { heading: "숙소 연락처", lines: ["+86 13917532728"] }
+        ]
+      }
+      , {
         id: "flight_info"
         , icon: "✈️"
         , title: "항공권 정보 (2인)"
