@@ -54,7 +54,7 @@ export default function WeatherForecast({ days }) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-sky-100 p-4">
       <div className="flex items-center justify-between mb-2">
-        <p className="text-xs font-bold text-sky-500">상해 날씨</p>
+        <p className="text-xs font-bold text-sky-500">🌦️ 상해 날씨</p>
         <span className="text-[10px] text-gray-400">7/14 기준 예보 · 출발 전 확인</span>
       </div>
       <div className="grid grid-cols-4 gap-1.5">

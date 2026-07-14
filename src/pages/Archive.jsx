@@ -5,7 +5,7 @@ import VoucherDetailCard from '../components/VoucherDetailCard.jsx';
 
 export default function Archive() {
   const [modal, setModal] = useState(null);
-  const { archive } = travelData;
+  const { archive, spots } = travelData;
 
   return (
     <div className="space-y-4">
@@ -17,6 +17,10 @@ export default function Archive() {
             key={v.id}
             voucher={v}
             onShowImage={(voucher) => setModal({ title: `${voucher.title} QR`, image: voucher.qrImage })}
+            onShowDriver={(voucher) => {
+              const spot = spots[voucher.driverSpotId];
+              setModal({ text: [spot.name_zh, spot.addr] });
+            }}
           />
         ))}
       </section>

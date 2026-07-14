@@ -101,6 +101,7 @@ export const travelData = {
         , icon: "🏨"
         , title: "징라이 호텔 부쉐 예약정보"
         , subtitle: "2026-07-16 ~ 07-19 (3박) · 예약번호 26013020238662870"
+        , driverSpotId: "hotel_jinglai"
         , sections: [
           { heading: "체크인 / 체크아웃", lines: ["체크인 2026-07-16", "체크아웃 2026-07-19"] }
           , { heading: "객실", lines: ["Superior King Room 1개", "성인 2명", "금연, 킹사이즈 베드"] }
