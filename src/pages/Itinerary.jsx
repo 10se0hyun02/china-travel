@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { travelData } from '../data/travelData.js';
 import TimelineItem from '../components/TimelineItem.jsx';
 import ImageModal from '../components/ImageModal.jsx';
+import UndecidedList from '../components/UndecidedList.jsx';
 
 const DIARY_KEY = 'couple-diaries';
 
@@ -16,7 +17,7 @@ function loadDiaries() {
 export default function Itinerary() {
   const [modal, setModal] = useState(null);
   const [diaries, setDiaries] = useState(loadDiaries);
-  const { spots, timelines } = travelData;
+  const { spots, timelines, undecided } = travelData;
 
   useEffect(() => {
     localStorage.setItem(DIARY_KEY, JSON.stringify(diaries));
@@ -61,6 +62,8 @@ export default function Itinerary() {
           </div>
         </section>
       ))}
+
+      <UndecidedList undecided={undecided} spots={spots} />
 
       <ImageModal open={!!modal} onClose={() => setModal(null)} {...(modal || {})} />
     </div>

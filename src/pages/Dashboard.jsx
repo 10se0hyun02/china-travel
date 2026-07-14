@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { travelData } from '../data/travelData.js';
 import ImageModal from '../components/ImageModal.jsx';
+import CurrencyConverter from '../components/CurrencyConverter.jsx';
 
 function parseDate(str) {
   const [y, m, d] = str.split('-').map(Number);
@@ -28,7 +29,7 @@ export default function Dashboard() {
         ? `여행 ${1 - toTrip}일차 💕`
         : '여행 완료 🎉';
 
-  const hotel = spots.grand_central;
+  const hotel = spots.hotel_jinglai;
 
   return (
     <div className="space-y-4">
@@ -49,6 +50,8 @@ export default function Dashboard() {
           ✈️ {meta.startDate} ~ {meta.endDate}
         </p>
       </div>
+
+      <CurrencyConverter />
 
       {/* 명세서 4번: grand_central 숙소 정보 홈 화면 고정 노출 */}
       <div className="bg-white rounded-2xl shadow-sm border border-sky-100 p-4">
