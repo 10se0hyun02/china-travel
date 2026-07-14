@@ -1,7 +1,7 @@
 import CopyAddressButton from './CopyAddressButton.jsx';
 
 /** 스팟 탭 장소 카드. days는 이 장소를 방문하는 일정 탭의 DAY 번호 목록(없으면 미정). */
-export default function PlaceCard({ spot, days, onShowDriver }) {
+export default function PlaceCard({ spot, days, onShowDriver, onShowDetail }) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-rose-100 p-4">
       <div className="flex items-start justify-between gap-2">
@@ -28,10 +28,23 @@ export default function PlaceCard({ spot, days, onShowDriver }) {
         <p className="mt-2 text-sm text-rose-400 bg-rose-50/70 rounded-xl px-3 py-2">💡 {spot.tip}</p>
       )}
 
-      <CopyAddressButton
-        address={spot.addr}
-        className="mt-3 w-full text-sm font-bold text-rose-400 bg-rose-50 rounded-xl py-2"
-      />
+      <div className="mt-3 flex gap-2">
+        {spot.detail && (
+          <button
+            type="button"
+            onClick={() => onShowDetail(spot)}
+            className="flex-1 text-sm font-bold text-sky-600 bg-sky-50 rounded-xl py-2"
+          >
+            자세히 보기
+          </button>
+        )}
+        <CopyAddressButton
+          address={spot.addr}
+          className={`text-sm font-bold text-rose-400 bg-rose-50 rounded-xl py-2 ${
+            spot.detail ? 'flex-1' : 'w-full'
+          }`}
+        />
+      </div>
     </div>
   );
 }
