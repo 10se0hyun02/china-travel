@@ -23,7 +23,7 @@ export const travelData = {
     {
       day: 1, date: "07/16 (목)", desc: "상해 입국 & 랜드마크 야경"
       , items: [
-        { time: "13:45", type: "transport", spotId: "pudong_airport", memo: "인천 12:25 출발 → 상해 13:45 도착(현지시간)" }
+        { time: "13:45", type: "transport", spotId: "pudong_airport", memo: "인천 12:35 출발 → 상해 13:45 도착(현지시간)" }
         , { time: "15:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크인 & 짐 풀기" }
         , { time: "16:30", type: "shopping", spotId: "nanjing_road", memo: "난징동루에서 와이탄까지 도보 15~20분" }
         , { time: "19:00", type: "sight", spotId: "the_bund", memo: "건물 조명 점등 시간대에 맞춰 산책" }
@@ -70,6 +70,26 @@ export const travelData = {
     // 클룩 예약 바우처 요약 — 원문 PDF는 길어서 접이식 카드로 핵심만 정리
     , voucherDetails: [
       {
+        id: "flight_info"
+        , icon: "✈️"
+        , title: "항공권 정보 (2인)"
+        , subtitle: "2026-07-16 ~ 2026-07-19 · 주문번호 1111-851-777"
+        , sections: [
+          { heading: "가는편", lines: ["2026-07-16 (목) 12:35 인천(ICN) 출발 → 13:45 상하이(PVG) 도착 (2시간 10분)"] }
+          , { heading: "오는편", lines: ["2026-07-19 (일) 16:50 상하이(PVG) 출발 → 20:05 인천(ICN) 도착 (2시간 15분)"] }
+          , {
+            heading: "탑승객"
+            , lines: ["CHO SEOHYUN (전자항공권 7849553235726)", "KIM MINKYEOM (전자항공권 7849553235727)"]
+          }
+          , {
+            heading: "수하물"
+            , lines: ["개인 물품 1개", "기내 수하물 1개 · 8kg (20×40×55cm)", "위탁 수하물 1개 · 23kg"]
+          }
+          , { heading: "예약처", lines: ["Mytrip · 주문번호 1111-851-777"] }
+          , { heading: "연락처", lines: ["seohyun0002@naver.com", "+82 10-8612-0435"] }
+        ]
+      }
+      , {
         id: "disneyland_ticket"
         , icon: "🎢"
         , title: "상하이 디즈니랜드 티켓 (2인)"
