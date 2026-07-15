@@ -28,7 +28,7 @@ export default function UndecidedList({ undecided, spots, onOpenSpot }) {
                   className="text-left bg-white rounded-xl p-2.5 border border-amber-100 active:bg-amber-50 transition-colors"
                 >
                   <p className="text-sm font-bold text-gray-700">{spot.name_ko}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">{spot.tip ?? spot.name_zh}</p>
+                  <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">{spot.tip ?? spot.name_zh}</p>
                 </button>
               );
             })}
