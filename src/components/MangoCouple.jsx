@@ -68,7 +68,7 @@ export function MangoJelly({ id, tone, side, mood = 'normal', variant }) {
   );
 }
 
-const STORAGE_KEY = 'mango-care-v4'; // v3 -> v4: 애정도 리셋 목적으로 키 버전만 올림 (이전 데이터는 자연히 무시됨)
+const STORAGE_KEY = 'mango-care-v5'; // v4 -> v5: 애정도 리셋 목적으로 키 버전만 올림 (이전 데이터는 자연히 무시됨)
 const MAX_LEVEL = 15;
 const PRESSES_PER_LEVEL = 200; // 캐릭터별 200회마다 레벨 +1, 각자 3000회에 만렙
 const MAX_COUNT = MAX_LEVEL * PRESSES_PER_LEVEL;
