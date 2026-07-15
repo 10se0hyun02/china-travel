@@ -8,17 +8,26 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-4">
-      <MangoCouple />
+      <div className="animate-card-in">
+        <MangoCouple />
+      </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-rose-100 p-4 text-center">
+      <div
+        className="animate-card-in bg-white rounded-2xl shadow-sm border border-rose-100 p-4 text-center"
+        style={{ animationDelay: '0.08s' }}
+      >
         <p className="text-sm text-gray-500">
           {meta.startDate} ~ {meta.endDate}
         </p>
       </div>
 
-      <WeatherForecast days={weather} />
+      <div className="animate-card-in" style={{ animationDelay: '0.16s' }}>
+        <WeatherForecast days={weather} />
+      </div>
 
-      <CurrencyConverter />
+      <div className="animate-card-in" style={{ animationDelay: '0.24s' }}>
+        <CurrencyConverter />
+      </div>
     </div>
   );
 }

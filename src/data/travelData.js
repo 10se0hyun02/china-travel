@@ -438,6 +438,111 @@ export const travelData = {
         ]
       }
     }
+    , "shop_nanjing_lego": {
+      name_ko: "난징동루 쇼핑 (레고·페이유에)"
+      , tip: "시마오 광장에서 레고·M&M 먼저 털고, 보행가 걸으며 페이유에 스니커즈 구매"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["난징동루 보행가를 구경하며 와이탄 야경 보러 가기 직전(늦은 오후)"] }
+          , { heading: "어디서", lines: ["시마오 광장(레고 스토어, M&M 스토어) → 페이유에(Feiyue) 난징동루점"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "레고·M&M: 인민광장역 쪽에서 시작해 시마오 광장의 대형 레고 스토어(상해 한정판 브릭)와 M&M을 먼저 털 것."
+              , "페이유에: 보행가를 걸으며 매장에 들러 가성비 스니커즈 구매 — 양발 다 신어보고 살 것(디자인마다 사이즈가 묘하게 다름)."
+              , "동선: 지오다노 'I ♥ SH' 전광판에서 인증샷 남긴 뒤 자연스럽게 와이탄으로 이동."
+            ]
+          }
+        ]
+      }
+    }
+    , "shop_disney_goods": {
+      name_ko: "디즈니 굿즈 쇼핑"
+      , tip: "불꽃놀이 끝나면 굿즈숍도 인파 지옥 — 낮에 미리 사두거나 불꽃놀이 1~2시간 전에 끝낼 것"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["파크 안에서 노는 틈틈이, 혹은 불꽃놀이 시작 전 널널한 시간대"] }
+          , { heading: "어디서", lines: ["디즈니랜드 내부 굿즈숍 및 입구 옆 디즈니 타운"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "불꽃놀이 직후: 기념품숍도 인파가 몰려 계산만 30분 넘게 걸림."
+              , "구매 타이밍: 마음에 드는 인형·키링(특히 주토피아 한정판)이 보이면 미루지 말고 낮에 미리 사서 보관함에 넣거나, 불꽃놀이 시작 1~2시간 전에 쇼핑을 끝내둘 것."
+            ]
+          }
+        ]
+      }
+    }
+    , "shop_xintiandi_harmay": {
+      name_ko: "신천지 하메이 & 소품숍"
+      , tip: "신천지 브런치 직후 하메이(HARMAY) 신천지점에서 명품 화장품·향수 미니어처 쓸어 담기"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["신천지 브런치 직후(낮 시간대)"] }
+          , { heading: "어디서", lines: ["하메이(HARMAY) 신천지점 → 신천지 스타일 쇼핑몰 편집숍"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "동선: 오전 임시정부 청사 관람 → 신천지 브런치 후 도보로 하메이 신천지점 이동."
+              , "쇼핑: 샤넬·입생로랑 등 명품 화장품/향수 미니어처를 가볍게 쓸어 담기 좋음."
+            ]
+          }
+        ]
+      }
+    }
+    , "shop_wukang_qingzhi": {
+      name_ko: "우캉루 칭즈 & 하메이"
+      , tip: "우캉맨션 촬영 후 산책길의 칭즈(생일 핸드크림)와 하메이 우캉루점 구경"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["우캉맨션 촬영 후 우캉루 산책길 중간"] }
+          , { heading: "어디서", lines: ["칭즈(QINGZHI) 매장 → 하메이(HARMAY) 우캉루점"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "동선: 우캉맨션 앞 대각선 단독 구도 촬영 후 우캉루 거리 산책."
+              , "칭즈(QINGZHI): 가로수길 중간 복고풍 뷰티숍 — 생일 날짜에 맞춘 365일 생일 핸드크림을 커스텀 선물로 구매 가능."
+              , "하메이 우캉루점: 신천지점에서 못 산 미니어처가 있다면 안푸루 인근 매장에서 추가로 구경."
+            ]
+          }
+        ]
+      }
+    }
+    , "shop_jiuguang": {
+      name_ko: "지우광 백화점 (久光百货)"
+      , tip: "숙소 도보 5~10분, 오전 10시 오픈에 맞춰 입장 — 릴리안 베이커리 에그타르트 + 지하 슈퍼마켓 쇼핑"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["오전 체크아웃 전, 오픈 시간(10시)에 맞춰 입장"] }
+          , { heading: "어디서", lines: ["숙소(징라이 호텔 부쉐)에서 도보 5~10분 — 최고급 백화점 지하 1층"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "릴리안 베이커리(지하 1층): 오픈하자마자 에그타르트(6개입 박스) 구매 — 기내 수하물로 들고 탈 준비."
+              , "백화점 슈퍼마켓(지하 1층): 진열이 깔끔한 백화점 마트 — 란화도우(흑당맛 누에콩 과자), 중국 한정 프리츠(마파두부맛), 대백토 사탕, 레이즈 감자칩을 한 번에 쓸어 담기."
+              , "선물용: 아버님 선물용 서봉주(고량주)나 중국 차(Tea) 선물 세트도 식품관 주류/차 코너에서 한 번에 해결 가능."
+            ]
+          }
+        ]
+      }
+    }
+    , "shop_reel_mall": {
+      name_ko: "릴 몰 (Reel, 芮欧百货) & 편의점"
+      , tip: "지우광 백화점 맞은편 트렌디 쇼핑몰 — 미니소에서 여름 뷰티템, 패밀리마트에서 마지막 간식 쇼핑"
+      , detail: {
+        sections: [
+          { heading: "언제", lines: ["지우광 백화점 쇼핑 직후, 체크아웃 전"] }
+          , { heading: "어디서", lines: ["지우광 백화점 바로 맞은편 릴 몰 → 근처 미니소·패밀리마트"] }
+          , {
+            heading: "꿀팁"
+            , lines: [
+              "미니소(MINISO): 여름 생존템 쿨링 스프레이, 산리오 캐릭터 퍼프 세트 등 가벼운 뷰티 소품 빠르게 쇼핑."
+              , "패밀리마트(FamilyMart): 백화점 마트에서 놓친 간식이 있다면 근처 대형 편의점에서 마지막으로 털 것."
+            ]
+          }
+        ]
+      }
+    }
   }
   , timelines: [
     {
@@ -447,6 +552,7 @@ export const travelData = {
         , { time: "15:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크인 & 짐 풀기" }
         , { time: "16:00", type: "food", spotId: "haidilao_bund", memo: "이른 저녁 — 본토 하이디라오 & 수타면 퍼포먼스" }
         , { time: "17:30", type: "shopping", spotId: "nanjing_road", memo: "난징동루에서 와이탄까지 도보 15~20분" }
+        , { time: "17:45", type: "shopping", spotId: "shop_nanjing_lego", memo: "레고·M&M·페이유에 쇼핑", sub: true }
         , { time: "19:00", type: "sight", spotId: "the_bund", memo: "건물 조명 점등 시간대에 맞춰 산책" }
         , { time: "20:30", type: "sight", spotId: "oriental_pearl", memo: "페리로 황푸강 건너서 야경 감상 🌉" }
       ]
@@ -455,6 +561,7 @@ export const travelData = {
       day: 2, date: "07/17 (금)", desc: "상하이 디즈니랜드 올데이"
       , items: [
         { time: "08:00", type: "sight", spotId: "disneyland", memo: "오픈런! 평일이지만 7월 방학 시즌이라 붐빌 수 있음" }
+        , { time: "18:00", type: "shopping", spotId: "shop_disney_goods", memo: "불꽃놀이 전 굿즈 쇼핑 끝내기", sub: true }
         , { time: "20:00", type: "sight", spotId: "disneyland", memo: "일루미네이션 불꽃놀이 관람 — 중간중간 실내에서 휴식 필수" }
       ]
     }
@@ -463,14 +570,18 @@ export const travelData = {
       , items: [
         { time: "10:00", type: "sight", spotId: "kr_provisional_gov", memo: "오전 한산할 때 차분하게 관람" }
         , { time: "12:30", type: "food", spotId: "xinyueshi", memo: "광둥식 딤섬 점심 — 하가우·크리스피 창펀 필수" }
-        , { time: "14:00", type: "sight", spotId: "xintiandi", memo: "식후 카페·골목 산책 & 쇼핑" }
+        , { time: "14:00", type: "shopping", spotId: "shop_xintiandi_harmay", memo: "하메이 신천지점 화장품·향수 쇼핑", sub: true }
+        , { time: "14:30", type: "sight", spotId: "xintiandi", memo: "식후 카페·골목 산책 & 쇼핑" }
         , { time: "16:00", type: "sight", spotId: "wukang_road", memo: "우캉맨션 앞에서 인생샷 남기기" }
+        , { time: "16:30", type: "shopping", spotId: "shop_wukang_qingzhi", memo: "칭즈 생일 핸드크림 & 하메이 우캉루점", sub: true }
       ]
     }
     , {
       day: 4, date: "07/19 (일)", desc: "귀국일 — 오전 미정, 오후 출국"
       , items: [
-        { time: "13:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크아웃 & 공항 이동" }
+        { time: "10:00", type: "shopping", spotId: "shop_jiuguang", memo: "릴리안 베이커리 & 지하 슈퍼마켓 쇼핑", sub: true }
+        , { time: "10:45", type: "shopping", spotId: "shop_reel_mall", memo: "릴몰 미니소 & 패밀리마트", sub: true }
+        , { time: "13:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크아웃 & 공항 이동" }
         , { time: "16:50", type: "transport", spotId: "pudong_airport", memo: "상해 16:50 출발 → 인천 20:05 도착 예정" }
       ]
     }
@@ -490,7 +601,6 @@ export const travelData = {
     {
       icon: "📱"
       , title: "우리 여행 앱 이용 방법"
-      , defaultOpen: true
       , sections: [
         {
           heading: "기본"

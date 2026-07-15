@@ -12,6 +12,9 @@ export default function Itinerary() {
 
   const showDriver = (spot) => setDriver({ text: [spot.name_zh, spot.addr] });
 
+  // 탭 진입 시 전체 일정 카드가 순서대로 촤라락 나타나도록 전역 인덱스로 지연시간 계산 (최대치는 캡)
+  let cardIndex = 0;
+
   return (
     <div className="space-y-6">
       {timelines.map((day) => (
@@ -24,16 +27,20 @@ export default function Itinerary() {
             <span className="text-xs text-gray-400">{day.desc}</span>
           </div>
 
-          {day.items.map((item, i) => (
-            <TimelineItem
-              key={`${day.day}-${i}`}
-              item={item}
-              spot={spots[item.spotId]}
-              isLast={i === day.items.length - 1}
-              onOpen={(it, spot) => setDetail(spot)}
-              onShowDriver={showDriver}
-            />
-          ))}
+          {day.items.map((item, i) => {
+            const delay = Math.min(cardIndex++, 10) * 0.05;
+            return (
+              <div key={`${day.day}-${i}`} className="animate-card-in" style={{ animationDelay: `${delay}s` }}>
+                <TimelineItem
+                  item={item}
+                  spot={spots[item.spotId]}
+                  isLast={i === day.items.length - 1}
+                  onOpen={(it, spot) => setDetail(spot)}
+                  onShowDriver={showDriver}
+                />
+              </div>
+            );
+          })}
         </section>
       ))}
 
