@@ -1,6 +1,6 @@
 import { travelData } from '../data/travelData.js';
 import AccordionCard from '../components/AccordionCard.jsx';
-import { BulletLine } from '../components/SpotDetailModal.jsx';
+import { BulletLine, SectionHeading } from '../components/SpotDetailModal.jsx';
 
 // 카드 아이콘 배경 톤 — 4개 카드를 눈으로 구분하기 쉽게 순환 배치
 const TONES = ['sky', 'rose', 'amber', 'rose'];
@@ -26,15 +26,16 @@ export default function Info() {
             <div className="space-y-4">
               {g.sections.map((s, i) => (
                 <div key={s.heading} className={i > 0 ? 'pt-4 border-t border-gray-100' : ''}>
-                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">
-                    {s.heading}
-                  </p>
-                  <ul className="space-y-1.5">
+                  {s.highlight ? (
+                    <p className="inline-block text-xs font-extrabold text-rose-500 bg-rose-100 rounded-full px-3 py-1 mb-2">
+                      {s.heading}
+                    </p>
+                  ) : (
+                    <SectionHeading>{s.heading}</SectionHeading>
+                  )}
+                  <ul className="space-y-2.5">
                     {s.lines.map((line, j) => (
-                      <li key={j} className="flex gap-2 text-sm text-gray-700 leading-relaxed">
-                        <span className="text-gray-300 shrink-0">•</span>
-                        <BulletLine line={line} />
-                      </li>
+                      <BulletLine key={j} line={line} />
                     ))}
                   </ul>
                 </div>

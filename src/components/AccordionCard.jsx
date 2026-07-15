@@ -21,7 +21,7 @@ export default function AccordionCard({ icon, title, subtitle, defaultOpen = fal
           <span
             className={`w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-base ${TONE_STYLES[tone]}`}
           >
-            {icon}
+            <span className="emoji-muted">{icon}</span>
           </span>
           <div className="min-w-0">
             <p className="font-bold text-[15px] text-gray-800 truncate">{title}</p>

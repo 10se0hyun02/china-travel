@@ -28,15 +28,20 @@
   --color-gray-900: #3a3632;
 }
 
-/* Zero-Data: 외부 폰트 없이 시스템 폰트 스택 */
+/* Zero-Data: 번들 폰트 없이 시스템 폰트만 사용 — 오프라인 로딩 비용 없음 (의도적 선택) */
 html {
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
-    "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic",
+    "Segoe UI", Roboto, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background-color: #faf6f6; /* 앱 프레임 바깥 여백도 파스텔 톤 유지 */
+}
+
+/* 원색 이모지가 파스텔 톤에서 튀지 않도록 채도를 낮춘 뮤트 처리 — 앱 전역 공용 */
+.emoji-muted {
+  filter: grayscale(0.35) saturate(0.55) opacity(0.9);
 }
 
 /* 홈 탭 망고젤리 커플(MangoCouple) 애니메이션 */

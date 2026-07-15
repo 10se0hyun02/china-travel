@@ -256,7 +256,7 @@ export default function MangoCouple() {
           aria-label={`${c.name} 쓰다듬기`}
         >
           <MangoJelly id={c.side} side={c.side} mood={moodOf(k)} tone={c.tone} variant={c.variant} />
-          <span className={`mt-1 text-[11px] font-bold ${c.color}`}>{c.name}</span>
+          <span className={`mt-1 text-xs font-bold ${c.color}`}>{c.name}</span>
         </button>
       </div>
     );
@@ -272,22 +272,20 @@ export default function MangoCouple() {
       </h1>
       <p className="mb-3 text-center text-xs font-semibold text-sky-500">{period}</p>
 
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-amber-100 via-rose-50 to-sky-50 shadow-sm px-4 pt-6 pb-4">
-      <span className="absolute left-[16%] top-3 text-lg animate-mango-sparkle" style={{ animationDelay: '0s' }}>
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-amber-100 via-rose-50 to-sky-50 shadow-sm px-4 pt-7 pb-5">
+      <span className="absolute left-[16%] top-3 text-lg animate-mango-sparkle emoji-muted" style={{ animationDelay: '0s' }}>
         🧳
       </span>
-      <span className="absolute right-[18%] top-5 text-base animate-mango-sparkle" style={{ animationDelay: '0.6s' }}>
+      <span className="absolute right-[18%] top-5 text-base animate-mango-sparkle emoji-muted" style={{ animationDelay: '0.6s' }}>
         🎫
       </span>
-      <span className="absolute left-[46%] top-0 text-sm animate-mango-sparkle" style={{ animationDelay: '1.2s' }}>
+      <span className="absolute left-[46%] top-0 text-sm animate-mango-sparkle emoji-muted" style={{ animationDelay: '1.2s' }}>
         ✈️
       </span>
 
       {/* 지금 누구를 돌보고 있는지 — 캐릭터 위 중앙에 표시 */}
-      <p className="relative text-center text-[11px] font-bold text-rose-400 mb-1">
-        <span style={{ filter: 'grayscale(0.35) saturate(0.55) opacity(0.9)' }}>
-          {state.sel === 'mango' ? '🐶' : '👑'}
-        </span>{' '}
+      <p className="relative text-center text-xs font-bold text-rose-400 mb-3">
+        <span className="emoji-muted">{state.sel === 'mango' ? '🐶' : '👑'}</span>{' '}
         {state.sel === 'mango' ? '강아지 돌보는중' : '공주 돌보는중'}
       </p>
 
@@ -311,7 +309,7 @@ export default function MangoCouple() {
       {bubble && (
         <p
           key={bubble.key}
-          className="absolute -translate-x-1/2 top-2 z-20 bg-white/90 rounded-full px-3 py-1 text-[11px] font-bold text-gray-600 shadow-sm animate-care-bubble whitespace-nowrap"
+          className="absolute -translate-x-1/2 top-2 z-20 bg-white/90 rounded-full px-3 py-1 text-xs font-bold text-gray-600 shadow-sm animate-care-bubble whitespace-nowrap"
           style={{ left: bubble.target === 'mango' ? '34%' : '66%' }}
         >
           {bubble.text}
@@ -345,7 +343,7 @@ export default function MangoCouple() {
       </div>
 
       {/* 캐릭터별 애정도 게이지 — 탭하면 돌볼 아이 선택 */}
-      <div className="relative mt-3 grid grid-cols-2 gap-2">
+      <div className="relative mt-4 grid grid-cols-2 gap-2">
         {['mango', 'melang'].map((k) => {
           const c = CHARACTERS[k];
           const n = state[k];
@@ -362,8 +360,8 @@ export default function MangoCouple() {
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-[10px] font-bold ${c.color}`}>{c.name}</span>
-                <span className="text-[10px] font-bold text-gray-500">
+                <span className={`text-xs font-bold ${c.color}`}>{c.name}</span>
+                <span className="text-xs font-bold text-gray-500">
                   {maxed ? '👑 MAX' : `Lv.${lv}`}
                 </span>
               </div>
@@ -373,22 +371,22 @@ export default function MangoCouple() {
                   style={{ width: `${prog}%` }}
                 />
               </div>
-              <p className="mt-0.5 text-[9px] font-semibold text-gray-400">{LEVEL_TITLES[lv - 1]}</p>
+              <p className="mt-0.5 text-[11px] font-semibold text-gray-400">{LEVEL_TITLES[lv - 1]}</p>
             </button>
           );
         })}
       </div>
 
       {/* 돌보기 버튼 — 선택된 아이에게 적용 */}
-      <div className="relative mt-3 grid grid-cols-4 gap-1.5">
+      <div className="relative mt-4 grid grid-cols-4 gap-1.5">
         {ACTIONS.map((a) => (
           <button
             key={a.type}
             type="button"
             onClick={() => react(a.type, a.type, state.sel)}
-            className="flex items-center justify-center gap-1 bg-white/80 rounded-full py-2 text-[11px] font-bold text-gray-600 shadow-sm active:scale-95 active:bg-rose-100 transition-all"
+            className="flex items-center justify-center gap-0.5 bg-white/80 rounded-full py-2.5 px-1 text-xs font-bold text-gray-600 shadow-sm active:scale-95 active:bg-rose-100 transition-all whitespace-nowrap"
           >
-            <span className="text-sm">{a.emoji}</span>
+            <span className="text-sm emoji-muted shrink-0">{a.emoji}</span>
             {a.label}
           </button>
         ))}

@@ -1,19 +1,38 @@
 import { useEffect } from 'react';
 
+/** 소제목 — 컬러 악센트 바 + 굵은 로즈 텍스트로 본문과 확실히 분리. */
+export function SectionHeading({ children }) {
+  return (
+    <div className="flex items-center gap-1.5 mb-2">
+      <span className="w-1 h-3.5 rounded-full bg-rose-300 shrink-0" />
+      <p className="text-[13px] font-extrabold text-rose-500">{children}</p>
+    </div>
+  );
+}
+
 /**
- * "라벨: 내용" 형태의 불릿은 라벨을 굵게 분리해 가독성을 높인다.
+ * "라벨: 내용" 형태의 불릿은 라벨을 작은 칩으로 떼어내 그 아래 설명을 붙인다 —
+ * 줄글로 이어지던 문장을 "미니 소제목 + 본문" 두 줄 블록으로 나눠 스캔하기 쉽게 한다.
  * 라벨은 45자 이내 + 콜론 뒤 공백이 있을 때만 인식 (시간 표기 07:30 등은 오인식 안 됨).
- * "라벨 : 내용"처럼 콜론 앞에 공백이 있는 표기도 허용.
+ * "라벨 : 내용"처럼 콜론 앞에 공백이 있는 표기도 허용. 라벨이 없는 일반 문장은 기존처럼 점 불릿으로.
  */
 export function BulletLine({ line }) {
   const m = line.match(/^(.{1,45}?)\s*[:：]\s(.*)$/s);
-  if (!m) return <span>{line}</span>;
+  if (!m) {
+    return (
+      <li className="flex gap-2 text-sm text-gray-700 leading-relaxed">
+        <span className="text-gray-300 shrink-0 mt-[3px]">•</span>
+        <span>{line}</span>
+      </li>
+    );
+  }
   return (
-    <span>
-      <span className="font-bold text-sky-600">{m[1]}</span>
-      <span className="text-gray-400"> · </span>
-      {m[2]}
-    </span>
+    <li className="text-sm text-gray-700 leading-relaxed">
+      <span className="inline-block bg-sky-50 text-sky-600 font-bold text-xs rounded-md px-2 py-0.5 mb-1">
+        {m[1]}
+      </span>
+      <p>{m[2]}</p>
+    </li>
   );
 }
 
@@ -65,7 +84,7 @@ export default function SpotDetailModal({ open, onClose, spot }) {
         <div className="mt-5 space-y-4">
           {spot.tip && (
             <div>
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">팁</p>
+              <SectionHeading>팁</SectionHeading>
               <p className="text-sm text-rose-500/90 bg-rose-50/70 rounded-xl px-3 py-2 leading-relaxed">
                 {spot.tip}
               </p>
@@ -77,15 +96,10 @@ export default function SpotDetailModal({ open, onClose, spot }) {
               key={s.heading}
               className={idx > 0 || spot.tip ? 'pt-4 border-t border-gray-100' : ''}
             >
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">
-                {s.heading}
-              </p>
-              <ul className="space-y-1.5">
+              <SectionHeading>{s.heading}</SectionHeading>
+              <ul className="space-y-2.5">
                 {s.lines.map((line, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-gray-700 leading-relaxed">
-                    <span className="text-gray-300 shrink-0">•</span>
-                    <BulletLine line={line} />
-                  </li>
+                  <BulletLine key={i} line={line} />
                 ))}
               </ul>
             </div>

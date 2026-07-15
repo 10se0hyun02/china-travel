@@ -12,9 +12,12 @@ const TYPE_ICONS = {
  * 일정 탭 타임라인 카드. spot은 travelData.spots에서 spotId로 해석해 내려받는다.
  * 카드 전체가 클릭 영역(장소 상세 바텀시트), 중문명 옆 아이콘으로 기사님용 확대·한자 상호명 복사(지도 앱 붙여넣기용).
  * item.sub가 true면 메인 일정이 아닌 보조 쇼핑 팁으로 들여쓰기·점선 카드로 구분해 표시.
+ * item.badge가 있으면 작은 딱지로 표시 (예: "수정 추천" — 수정이가 추천한 스팟이라는 뜻, 앰버 톤으로 구분).
  */
 export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver }) {
   const sub = !!item.sub;
+  const badge = item.badge ?? (sub ? '쇼핑 팁' : null);
+  const badgeTone = badge === '쇼핑 팁' ? 'text-rose-400 bg-rose-100' : 'text-amber-600 bg-amber-100';
 
   return (
     <div className={`flex gap-3 ${sub ? 'ml-8' : ''}`}>
@@ -25,10 +28,7 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
             sub ? 'w-7 h-7 text-sm' : 'w-9 h-9 text-base'
           }`}
         >
-          {/* 이모지 원색이 파스텔 톤에서 튀지 않도록 채도를 낮춰 뮤트 처리 */}
-          <span style={{ filter: 'grayscale(0.35) saturate(0.55) opacity(0.9)' }}>
-            {TYPE_ICONS[item.type] || '📍'}
-          </span>
+          <span className="emoji-muted">{TYPE_ICONS[item.type] || '📍'}</span>
         </span>
         {!isLast && <span className="w-px flex-1 bg-rose-200 my-1" />}
       </div>
@@ -48,9 +48,9 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
             {item.time || '언제든'}
           </span>
           <div className="flex items-center gap-1.5">
-            {sub && (
-              <span className="text-[10px] font-bold text-rose-400 bg-rose-100 rounded-full px-1.5 py-0.5">
-                쇼핑 팁
+            {badge && (
+              <span className={`text-[10px] font-bold rounded-full px-1.5 py-0.5 ${badgeTone}`}>
+                {badge}
               </span>
             )}
             {spot && <span className="text-gray-300 text-lg leading-none">›</span>}

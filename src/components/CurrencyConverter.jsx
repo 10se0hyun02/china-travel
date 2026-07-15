@@ -10,6 +10,14 @@ function loadRate() {
   return saved > 0 ? saved : travelData.meta.krwPerCny;
 }
 
+// 입력창에 보여줄 때만 천단위 콤마를 붙이고, 실제 계산용 상태값은 콤마 없는 숫자 문자열로 유지
+function withCommas(v) {
+  if (v === '' || v == null) return v;
+  const [intPart, decPart] = String(v).split('.');
+  const withSep = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return decPart !== undefined ? `${withSep}.${decPart}` : withSep;
+}
+
 export default function CurrencyConverter() {
   const [rate, setRate] = useState(loadRate);
   const [editingRate, setEditingRate] = useState(false);
@@ -44,7 +52,9 @@ export default function CurrencyConverter() {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-sky-100 p-4">
       <div className="flex items-center justify-between mb-2">
-        <p className="text-xs font-bold text-sky-400">💱 환율 계산기</p>
+        <p className="text-xs font-bold text-sky-400">
+          <span className="emoji-muted">💱</span> 환율 계산기
+        </p>
         <button
           type="button"
           onClick={() => setEditingRate((v) => !v)}
@@ -74,10 +84,10 @@ export default function CurrencyConverter() {
         <label className="flex items-center gap-2 bg-rose-50/70 rounded-xl px-3 py-2">
           <span className="text-sm font-bold text-rose-400 w-16">¥ 위안</span>
           <input
-            type="number"
+            type="text"
             inputMode="decimal"
-            value={cny}
-            onChange={(e) => onCnyChange(e.target.value)}
+            value={withCommas(cny)}
+            onChange={(e) => onCnyChange(e.target.value.replace(/,/g, ''))}
             placeholder="0"
             className="flex-1 min-w-0 bg-transparent text-right text-base font-bold text-gray-700 outline-none"
           />
@@ -85,10 +95,10 @@ export default function CurrencyConverter() {
         <label className="flex items-center gap-2 bg-sky-50/70 rounded-xl px-3 py-2">
           <span className="text-sm font-bold text-sky-400 w-16">₩ 원화</span>
           <input
-            type="number"
+            type="text"
             inputMode="decimal"
-            value={krw}
-            onChange={(e) => onKrwChange(e.target.value)}
+            value={withCommas(krw)}
+            onChange={(e) => onKrwChange(e.target.value.replace(/,/g, ''))}
             placeholder="0"
             className="flex-1 min-w-0 bg-transparent text-right text-base font-bold text-gray-700 outline-none"
           />

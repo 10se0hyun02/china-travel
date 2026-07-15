@@ -54,17 +54,19 @@ export default function WeatherForecast({ days }) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-sky-100 p-4">
       <div className="flex items-center justify-between mb-2">
-        <p className="text-xs font-bold text-sky-500">🌦️ 상해 날씨</p>
-        <span className="text-[10px] text-gray-400">7/14 기준 예보 · 출발 전 확인</span>
+        <p className="text-xs font-bold text-sky-500">
+          <span className="emoji-muted">🌦️</span> 상해 날씨
+        </p>
+        <span className="text-[11px] text-gray-400">7/14 기준 예보 · 출발 전 확인</span>
       </div>
       <div className="grid grid-cols-4 gap-1.5">
         {days.map((d) => (
           <div key={d.day} className="flex flex-col items-center bg-sky-50/60 rounded-xl py-2.5">
-            <span className="text-[10px] font-bold text-gray-500">{d.date}</span>
+            <span className="text-[11px] font-bold text-gray-500">{d.date}</span>
             <WeatherIcon condition={d.condition} />
-            <span className="text-xs font-bold text-gray-700 mt-0.5">{d.high}°</span>
-            <span className="text-[10px] text-gray-400">{d.low}°</span>
-            <span className="text-[9px] text-gray-400 mt-0.5 text-center leading-tight px-0.5">
+            <span className="text-sm font-bold text-gray-700 mt-0.5">{d.high}°</span>
+            <span className="text-[11px] text-gray-400">{d.low}°</span>
+            <span className="text-[10px] text-gray-400 mt-0.5 text-center leading-tight px-0.5">
               {d.label}
             </span>
           </div>

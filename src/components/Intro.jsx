@@ -47,7 +47,7 @@ export default function Intro({ onDone }) {
           SHANGHAI
         </h1>
         <p
-          className="mt-1 text-[11px] font-bold tracking-[0.35em] text-rose-400 animate-intro-rise"
+          className="mt-1 text-sm font-bold tracking-[0.35em] text-rose-400 animate-intro-rise"
           style={{ animationDelay: '0.3s' }}
         >
           망고멜랑 ❤️ 멜랑망고
