@@ -3,14 +3,20 @@ import { travelData } from '../data/travelData.js';
 
 const CHECKLIST_KEY = 'predeparture-checklist-v1';
 
+// category: 'todo'(준비사항 - 설치·설정·확인) / 'pack'(준비물 - 챙길 물건)
 const ITEMS = [
-  '고덕지도·디디추싱·알리페이·위챗페이 설치 및 카드 연동'
-  , '파파고 중국어 언어팩 오프라인 다운로드'
-  , '유심/이심 활성화 확인'
-  , '보조배터리는 기내 휴대 가방에 - 위탁 수하물 절대 금지'
-  , '돼지코(멀티어댑터) 챙기기'
-  , '여권·전자항공권·호텔 바우처 확인'
-  , '이 앱 한 번 열어서 오프라인 캐싱해두기'
+  { category: 'todo', text: '고덕지도·디디추싱·알리페이·위챗페이 설치 및 카드 연동' }
+  , { category: 'todo', text: '파파고 중국어 언어팩 오프라인 다운로드' }
+  , { category: 'todo', text: '유심/이심 활성화 확인' }
+  , { category: 'todo', text: '이 앱 한 번 열어서 오프라인 캐싱해두기' }
+  , { category: 'pack', text: '보조배터리는 기내 휴대 가방에 - 위탁 수하물 절대 금지' }
+  , { category: 'pack', text: '돼지코(멀티어댑터) 챙기기' }
+  , { category: 'pack', text: '여권·전자항공권·호텔 바우처 확인' }
+];
+
+const TABS = [
+  { id: 'todo', label: '준비사항' }
+  , { id: 'pack', label: '준비물' }
 ];
 
 function loadChecked() {
@@ -43,6 +49,7 @@ function formatCountdown(ms) {
  */
 export default function PreDepartureChecklist({ onDone }) {
   const [checked, setChecked] = useState(loadChecked);
+  const [tab, setTab] = useState('todo');
   const departureTime = new Date(travelData.meta.departureAt).getTime();
   const [remaining, setRemaining] = useState(() => departureTime - Date.now());
 
@@ -55,15 +62,16 @@ export default function PreDepartureChecklist({ onDone }) {
     if (remaining <= 0) onDone();
   }, [remaining, onDone]);
 
-  const toggle = (item) => {
+  const toggle = (text) => {
     setChecked((prev) => {
-      const next = { ...prev, [item]: !prev[item] };
+      const next = { ...prev, [text]: !prev[text] };
       localStorage.setItem(CHECKLIST_KEY, JSON.stringify(next));
       return next;
     });
   };
 
-  const doneCount = ITEMS.filter((item) => checked[item]).length;
+  const doneCount = ITEMS.filter((item) => checked[item.text]).length;
+  const visibleItems = ITEMS.filter((item) => item.category === tab);
 
   return (
     <div className="fixed inset-0 z-40 flex flex-col bg-gradient-to-b from-amber-50 via-rose-50 to-sky-50 overflow-y-auto">
@@ -74,17 +82,36 @@ export default function PreDepartureChecklist({ onDone }) {
           {doneCount}/{ITEMS.length} 완료
         </p>
 
-        <ul className="mt-6 space-y-2.5">
-          {ITEMS.map((item) => (
-            <li key={item}>
+        <div className="mt-5 grid grid-cols-2 gap-2">
+          {TABS.map((t) => {
+            const items = ITEMS.filter((item) => item.category === t.id);
+            const count = items.filter((item) => checked[item.text]).length;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => setTab(t.id)}
+                className={`rounded-full py-2 text-sm font-bold transition-colors ${
+                  tab === t.id ? 'bg-rose-400 text-white shadow-sm' : 'bg-white/70 text-gray-500'
+                }`}
+              >
+                {t.label} ({count}/{items.length})
+              </button>
+            );
+          })}
+        </div>
+
+        <ul className="mt-4 space-y-2.5">
+          {visibleItems.map((item) => (
+            <li key={item.text}>
               <label className="flex items-start gap-2.5 bg-white/80 rounded-xl px-3 py-2.5 text-sm text-gray-700 leading-relaxed shadow-sm cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={!!checked[item]}
-                  onChange={() => toggle(item)}
+                  checked={!!checked[item.text]}
+                  onChange={() => toggle(item.text)}
                   className="mt-0.5 shrink-0 w-4 h-4 accent-rose-400"
                 />
-                <span className={checked[item] ? 'line-through text-gray-400' : ''}>{item}</span>
+                <span className={checked[item.text] ? 'line-through text-gray-400' : ''}>{item.text}</span>
               </label>
             </li>
           ))}
