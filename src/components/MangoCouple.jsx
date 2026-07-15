@@ -26,24 +26,35 @@ export function MangoJelly({ id, tone, side, mood = 'normal', variant }) {
       <ellipse cx="46" cy="16" rx="10" ry="5" fill="#a8bf9a" transform="rotate(-25 46 16)" />
       {/* 몸통 */}
       <ellipse cx="50" cy="62" rx="34" ry="40" fill={`url(#${gradId})`} />
-      {/* 볼터치 — 기분 좋을 땐 더 발그레 */}
-      <circle cx="30" cy="60" r="5" fill="#d9a8a0" opacity={mood === 'normal' ? 0.5 : 0.8} />
-      <circle cx="70" cy="60" r="5" fill="#d9a8a0" opacity={mood === 'normal' ? 0.5 : 0.8} />
-      {/* 눈 — 기분 좋을 땐 웃는 눈(^^) */}
-      {mood === 'normal' ? (
-        <>
-          <circle cx="38" cy="52" r="3.5" fill="#5b3a1e" />
-          <circle cx="62" cy="52" r="3.5" fill="#5b3a1e" />
-        </>
-      ) : (
+      {/* 볼터치 — 기분 좋을 땐 더 발그레, 속상할 땐 다시 옅게 */}
+      <circle cx="30" cy="60" r="5" fill="#d9a8a0" opacity={mood === 'happy' || mood === 'yum' ? 0.8 : 0.5} />
+      <circle cx="70" cy="60" r="5" fill="#d9a8a0" opacity={mood === 'happy' || mood === 'yum' ? 0.8 : 0.5} />
+      {/* 눈 — 기분 좋을 땐 웃는 눈(^^), 속상할 땐 八자 눈썹으로 처짐 */}
+      {mood === 'happy' || mood === 'yum' ? (
         <>
           <path d="M33 54 Q38 48 43 54" stroke="#5b3a1e" strokeWidth="3" fill="none" strokeLinecap="round" />
           <path d="M57 54 Q62 48 67 54" stroke="#5b3a1e" strokeWidth="3" fill="none" strokeLinecap="round" />
         </>
+      ) : mood === 'sad' ? (
+        <>
+          <path d="M34 48 Q38 51 42 53" stroke="#5b3a1e" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+          <path d="M66 48 Q62 51 58 53" stroke="#5b3a1e" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+          <circle cx="38" cy="53" r="3" fill="#5b3a1e" />
+          <circle cx="62" cy="53" r="3" fill="#5b3a1e" />
+          {/* 눈물 */}
+          <path d="M30 58 Q27 64 30 68 Q33 64 30 58 Z" fill="#8ecae6" opacity="0.85" />
+        </>
+      ) : (
+        <>
+          <circle cx="38" cy="52" r="3.5" fill="#5b3a1e" />
+          <circle cx="62" cy="52" r="3.5" fill="#5b3a1e" />
+        </>
       )}
-      {/* 입 — 간식 먹을 땐 아~ 벌린 입 */}
+      {/* 입 — 간식 먹을 땐 아~ 벌린 입, 속상할 땐 울상 */}
       {mood === 'yum' ? (
         <ellipse cx="50" cy="67" rx="6" ry="5" fill="#5b3a1e" />
+      ) : mood === 'sad' ? (
+        <path d="M41 71 Q50 63 59 71" stroke="#5b3a1e" strokeWidth="3" fill="none" strokeLinecap="round" />
       ) : (
         <path d="M40 64 Q50 73 60 64" stroke="#5b3a1e" strokeWidth="3" fill="none" strokeLinecap="round" />
       )}

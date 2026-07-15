@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { travelData } from '../data/travelData.js';
 
 const CHECKLIST_KEY = 'predeparture-checklist-v1';
+const FADE_OUT_MS = 500; // 인트로 화면과 동일한 페이드아웃 길이
 
 // category: 'todo'(준비사항 - 설치·설정·확인) / 'pack'(준비물 - 챙길 물건)
 const ITEMS = [
@@ -59,9 +60,10 @@ function formatCountdown(ms) {
  * 인트로 다음에 뜨는 풀스크린 체크리스트 게이트. 출발 전에만 등장하며,
  * "여행 시작하기"를 누르면 평소 앱(홈 탭)으로 진입한다. 체크 상태는 localStorage에 저장.
  */
-export default function PreDepartureChecklist({ onDone }) {
+export default function PreDepartureChecklist({ onDone, onLeaving }) {
   const [checked, setChecked] = useState(loadChecked);
   const [tab, setTab] = useState('todo');
+  const [leaving, setLeaving] = useState(false);
   const departureTime = new Date(travelData.meta.departureAt).getTime();
   const [remaining, setRemaining] = useState(() => departureTime - Date.now());
 
@@ -71,8 +73,19 @@ export default function PreDepartureChecklist({ onDone }) {
   }, [departureTime]);
 
   useEffect(() => {
-    if (remaining <= 0) onDone();
-  }, [remaining, onDone]);
+    if (remaining <= 0) setLeaving(true);
+  }, [remaining]);
+
+  // 페이드아웃이 끝나기(onDone) 전, 시작하는 순간 바로 알려서 편지 화면이 그 즉시 겹쳐 뜰 수 있게 한다
+  useEffect(() => {
+    if (leaving) onLeaving?.();
+  }, [leaving, onLeaving]);
+
+  useEffect(() => {
+    if (!leaving) return;
+    const t = setTimeout(onDone, FADE_OUT_MS);
+    return () => clearTimeout(t);
+  }, [leaving, onDone]);
 
   const toggle = (text) => {
     setChecked((prev) => {
@@ -86,7 +99,11 @@ export default function PreDepartureChecklist({ onDone }) {
   const visibleItems = ITEMS.filter((item) => item.category === tab);
 
   return (
-    <div className="fixed inset-0 z-40 flex flex-col bg-gradient-to-b from-amber-50 via-rose-50 to-sky-50 overflow-y-auto">
+    <div
+      className={`fixed inset-0 z-40 flex flex-col bg-gradient-to-b from-amber-50 via-rose-50 to-sky-50 overflow-y-auto ${
+        leaving ? 'animate-intro-fade-out' : 'animate-backdrop-fade'
+      }`}
+    >
       <div className="w-full max-w-md mx-auto flex-1 flex flex-col px-6 pt-12 pb-8">
         <span className="text-3xl text-center">✈️</span>
         <h1 className="mt-3 text-center text-xl font-extrabold text-gray-600">출발 전 체크리스트</h1>
@@ -132,7 +149,7 @@ export default function PreDepartureChecklist({ onDone }) {
         <button
           type="button"
           disabled={remaining > 0 && !import.meta.env.DEV}
-          onClick={onDone}
+          onClick={() => setLeaving(true)}
           className={`mt-8 w-full flex flex-col items-center rounded-full py-3 shadow-sm transition-transform ${
             remaining > 0 && !import.meta.env.DEV
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'

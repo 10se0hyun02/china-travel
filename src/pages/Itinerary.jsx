@@ -7,6 +7,7 @@ import { travelData } from '../data/travelData.js';
 import TimelineItem from '../components/TimelineItem.jsx';
 import ImageModal from '../components/ImageModal.jsx';
 import SpotDetailModal from '../components/SpotDetailModal.jsx';
+import TripProgressBar from '../components/TripProgressBar.jsx';
 
 // DAY별 테마 색 - 뱃지 색과(디즈니만) 카드 묶음 테두리를 다르게 해서 하루하루를 구분
 const DAY_THEMES = {
@@ -281,6 +282,8 @@ export default function Itinerary() {
 
   return (
     <div className="space-y-6">
+      <TripProgressBar />
+
       <div className="grid grid-cols-2 gap-2">
         {[
           { id: 'itinerary', label: '일정' },

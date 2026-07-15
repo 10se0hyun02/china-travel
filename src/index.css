@@ -200,6 +200,16 @@ body {
   animation: weather-rain-fall 1s ease-in infinite;
 }
 
+/* 편지 화면(LetterScreen) 봉투 열기 유도 애니메이션 */
+@keyframes letter-envelope-bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+.animate-letter-envelope {
+  animation: letter-envelope-bob 1.6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-mango-bounce-left,
   .animate-mango-bounce-right,
@@ -212,6 +222,7 @@ body {
   .animate-care-float,
   .animate-care-wind,
   .animate-care-wiggle,
+  .animate-letter-envelope,
   .animate-sheet-slide-up,
   .animate-card-in {
     animation: none;
