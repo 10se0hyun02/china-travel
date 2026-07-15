@@ -9,9 +9,16 @@ const ITEMS = [
   , { category: 'todo', text: '파파고 중국어 언어팩 오프라인 다운로드' }
   , { category: 'todo', text: '유심/이심 활성화 확인' }
   , { category: 'todo', text: '이 앱 한 번 열어서 오프라인 캐싱해두기' }
-  , { category: 'pack', text: '보조배터리는 기내 휴대 가방에 - 위탁 수하물 절대 금지' }
-  , { category: 'pack', text: '돼지코(멀티어댑터) 챙기기' }
-  , { category: 'pack', text: '여권·전자항공권·호텔 바우처 확인' }
+  , { category: 'pack', text: '여권 및 여권 사본 (만료일 6개월 이상 확인)' }
+  , { category: 'pack', text: '항공권(E-ticket) 및 숙소 바우처 (바우처 파일 따로 저장하기)' }
+  , { category: 'pack', text: '해외결제 가능 실물 카드 챙기기' }
+  , { category: 'pack', text: '여행자 보험 가입 및 증서 확인' }
+  , { category: 'pack', text: '어댑터(돼지코) 및 충전 케이블' }
+  , { category: 'pack', text: '보조배터리 - 100Wh(2만mAh) 이하 5개까지, 100~160Wh는 항공사 승인 시 2개까지만 기내 반입 가능(160Wh 초과 반입 불가). 위탁 수하물 절대 금지, 기내에서 충전도 금지.' }
+  , { category: 'pack', text: '비상약' }
+  , { category: 'pack', text: '개인 세면도구 및 화장품 (용기당 100ml 이하, 1인당 1L 투명 지퍼백 1개)' }
+  , { category: 'pack', text: '신발 및 여분의 옷·속옷' }
+  , { category: 'pack', text: '선글라스' }
 ];
 
 const TABS = [
