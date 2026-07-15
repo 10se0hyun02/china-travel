@@ -1,11 +1,11 @@
 import CopyAddressButton from './CopyAddressButton.jsx';
 
-const TYPE_LABELS = {
-  transport: '이동',
-  hotel: '숙소',
-  sight: '관광',
-  food: '식사',
-  shopping: '쇼핑',
+const TYPE_ICONS = {
+  transport: '✈️',
+  hotel: '🏨',
+  sight: '🌆',
+  food: '🍜',
+  shopping: '🛍️',
 };
 
 /**
@@ -17,8 +17,11 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
     <div className="flex gap-3">
       {/* 타임라인 축 — 일정 유형 라벨 */}
       <div className="flex flex-col items-center">
-        <span className="w-9 h-9 shrink-0 rounded-full bg-gradient-to-br from-rose-200 to-sky-200 flex items-center justify-center text-[10px] font-bold text-gray-600">
-          {TYPE_LABELS[item.type] || '기타'}
+        <span className="w-9 h-9 shrink-0 rounded-full bg-gradient-to-br from-rose-200 to-sky-200 flex items-center justify-center text-base">
+          {/* 이모지 원색이 파스텔 톤에서 튀지 않도록 채도를 낮춰 뮤트 처리 */}
+          <span style={{ filter: 'grayscale(0.35) saturate(0.55) opacity(0.9)' }}>
+            {TYPE_ICONS[item.type] || '📍'}
+          </span>
         </span>
         {!isLast && <span className="w-px flex-1 bg-rose-200 my-1" />}
       </div>
