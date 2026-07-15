@@ -1,6 +1,22 @@
 import { useEffect } from 'react';
 
 /**
+ * "라벨: 내용" 형태의 불릿은 라벨을 굵게 분리해 가독성을 높인다.
+ * 라벨은 30자 이내 + 콜론 뒤 공백이 있을 때만 인식 (시간 표기 07:30 등은 오인식 안 됨).
+ */
+function BulletLine({ line }) {
+  const m = line.match(/^(.{1,30}?)[:：]\s(.*)$/s);
+  if (!m) return <span>{line}</span>;
+  return (
+    <span>
+      <span className="font-bold text-sky-600">{m[1]}</span>
+      <span className="text-gray-400"> · </span>
+      {m[2]}
+    </span>
+  );
+}
+
+/**
  * 장소 상세 바텀시트 — 일정 탭 카드를 누르면 열린다.
  * 중문명·주소·팁·실전 정보(detail.sections)를 한 곳에 모아 보여준다.
  * 일정 메모는 타임라인 카드 쪽 표시 — 여기는 장소 정보만 담당.
@@ -67,7 +83,7 @@ export default function SpotDetailModal({ open, onClose, spot }) {
                 {s.lines.map((line, i) => (
                   <li key={i} className="flex gap-2 text-sm text-gray-700 leading-relaxed">
                     <span className="text-gray-300 shrink-0">•</span>
-                    <span>{line}</span>
+                    <BulletLine line={line} />
                   </li>
                 ))}
               </ul>
