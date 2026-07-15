@@ -267,7 +267,7 @@ export default function MangoCouple() {
 
   return (
     <div>
-      <h1 className="text-center text-lg font-extrabold tracking-[0.3em] text-gray-600">
+      <h1 className="text-center text-xl font-extrabold tracking-[0.3em] text-gray-600">
         SHANGHAI · TRAVEL
       </h1>
       <p className="mb-3 text-center text-xs font-semibold text-sky-500">{period}</p>

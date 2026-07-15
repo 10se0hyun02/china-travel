@@ -57,7 +57,7 @@ export default function WeatherForecast({ days }) {
         <p className="text-xs font-bold text-sky-500">
           <span className="emoji-muted">🌦️</span> 상해 날씨
         </p>
-        <span className="text-[11px] text-gray-400">7/14 기준 예보 · 출발 전 확인</span>
+        <span className="text-[11px] text-gray-400">7/15 기준 예보 · 출발 전 확인</span>
       </div>
       <div className="grid grid-cols-4 gap-1.5">
         {days.map((d) => (

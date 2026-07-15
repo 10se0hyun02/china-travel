@@ -19,6 +19,10 @@ const ITEMS = [
   , { category: 'pack', text: '개인 세면도구 및 화장품 (용기당 100ml 이하, 1인당 1L 투명 지퍼백 1개)' }
   , { category: 'pack', text: '신발 및 여분의 옷·속옷' }
   , { category: 'pack', text: '선글라스' }
+  , { category: 'pack', text: '선크림 (자외선 차단제)' }
+  , { category: 'pack', text: '휴대용 선풍기' }
+  , { category: 'pack', text: '여분의 양말' }
+  , { category: 'pack', text: '잠옷 · 실내복' }
 ];
 
 const TABS = [
@@ -126,18 +130,18 @@ export default function PreDepartureChecklist({ onDone }) {
 
         <button
           type="button"
-          disabled={remaining > 0}
+          disabled={remaining > 0 && !import.meta.env.DEV}
           onClick={onDone}
           className={`mt-8 w-full flex flex-col items-center rounded-full py-3 shadow-sm transition-transform ${
-            remaining > 0
+            remaining > 0 && !import.meta.env.DEV
               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
               : 'bg-rose-400 text-white active:scale-95'
           }`}
         >
           <span className="font-bold">
-            {remaining > 0 ? '아직 출발 전이에요' : '여행 시작하기 →'}
+            {remaining > 0 ? (import.meta.env.DEV ? '여행 시작하기 (dev) →' : '아직 출발 전이에요') : '여행 시작하기 →'}
           </span>
-          <span className={`text-[11px] font-semibold tabular-nums ${remaining > 0 ? 'text-gray-400' : 'text-white/80'}`}>
+          <span className={`text-[11px] font-semibold tabular-nums ${remaining > 0 && !import.meta.env.DEV ? 'text-gray-400' : 'text-white/80'}`}>
             {formatCountdown(remaining)} 후 자동 시작
           </span>
         </button>
