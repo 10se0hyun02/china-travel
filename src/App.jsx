@@ -35,7 +35,7 @@ export default function App() {
           dev 미리보기도 체크리스트가 다 사라지길 기다리지 않고 그 즉시 겹쳐 뜬다. */}
       <LetterScreen checklistDismissed={!showChecklist || checklistLeaving} />
       <Layout activeTab={tab} onTabChange={setTab}>
-        <Page onNavigate={setTab} />
+        <Page />
       </Layout>
     </>
   );

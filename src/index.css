@@ -210,6 +210,27 @@ body {
   animation: letter-envelope-bob 1.6s ease-in-out infinite;
 }
 
+/* 편지 화면 내용물(봉투/편지지)의 스르륵 나타남·사라짐 - 배경(bg-gradient) 자체는 투명해지지 않으므로
+   전환 중에도 뒤 화면(체크리스트·앱 본문)이 절대 비치지 않는다. */
+@keyframes letter-content-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-letter-content-in {
+  animation: letter-content-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes letter-content-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.92); }
+}
+
+.animate-letter-content-out {
+  animation: letter-content-out 0.6s cubic-bezier(0.4, 0, 1, 1) both;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-mango-bounce-left,
   .animate-mango-bounce-right,
@@ -223,6 +244,8 @@ body {
   .animate-care-wind,
   .animate-care-wiggle,
   .animate-letter-envelope,
+  .animate-letter-content-in,
+  .animate-letter-content-out,
   .animate-sheet-slide-up,
   .animate-card-in {
     animation: none;

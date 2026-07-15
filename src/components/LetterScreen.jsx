@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { travelData } from '../data/travelData.js';
 
 const LETTER_DURATION_MS = 60 * 60 * 1000; // 편지 노출 시간 - 출발 시각부터 1시간
-const FADE_OUT_MS = 500; // 인트로 화면과 동일한 페이드아웃 길이
+const FADE_OUT_MS = 600; // letter-content-out 애니메이션 길이와 맞춤
 
 const LETTER_LINES = [
   'TO 사랑하는 강아지'
@@ -54,12 +54,12 @@ export default function LetterScreen({ checklistDismissed }) {
   const close = () => setLeaving(true);
 
   return (
-    <div
-      className={`fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-rose-100 via-rose-50 to-pink-100 ${
-        leaving ? 'animate-intro-fade-out' : 'animate-backdrop-fade'
-      }`}
-    >
-      <div className="w-full max-w-md h-full mx-auto flex flex-col items-center justify-center px-8">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-gradient-to-b from-rose-100 via-rose-50 to-pink-100">
+      <div
+        className={`w-full max-w-md h-full mx-auto flex flex-col items-center justify-center px-8 ${
+          leaving ? 'animate-letter-content-out' : 'animate-letter-content-in'
+        }`}
+      >
         {!opened ? (
           <button
             type="button"
