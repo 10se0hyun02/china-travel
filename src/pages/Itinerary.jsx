@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { travelData } from '../data/travelData.js';
 import TimelineItem from '../components/TimelineItem.jsx';
 import ImageModal from '../components/ImageModal.jsx';
+import SpotDetailModal from '../components/SpotDetailModal.jsx';
 import UndecidedList from '../components/UndecidedList.jsx';
 
 export default function Itinerary() {
-  const [modal, setModal] = useState(null);
+  const [driver, setDriver] = useState(null); // 기사님용 중문 확대 모달
+  const [detail, setDetail] = useState(null); // 장소 상세 바텀시트에 띄울 spot
   const { spots, timelines, undecided } = travelData;
 
-  const showDriver = (spot) => setModal({ text: [spot.name_zh, spot.addr] });
+  const showDriver = (spot) => setDriver({ text: [spot.name_zh, spot.addr] });
 
   return (
     <div className="space-y-6">
@@ -28,15 +30,17 @@ export default function Itinerary() {
               item={item}
               spot={spots[item.spotId]}
               isLast={i === day.items.length - 1}
+              onOpen={(it, spot) => setDetail(spot)}
               onShowDriver={showDriver}
             />
           ))}
         </section>
       ))}
 
-      <UndecidedList undecided={undecided} spots={spots} />
+      <UndecidedList undecided={undecided} spots={spots} onOpenSpot={setDetail} />
 
-      <ImageModal open={!!modal} onClose={() => setModal(null)} {...(modal || {})} />
+      <SpotDetailModal open={!!detail} onClose={() => setDetail(null)} spot={detail} />
+      <ImageModal open={!!driver} onClose={() => setDriver(null)} {...(driver || {})} />
     </div>
   );
 }

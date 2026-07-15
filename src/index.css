@@ -60,6 +60,25 @@ body {
   animation: mango-sparkle 2.4s ease-in-out infinite;
 }
 
+/* 바텀시트 등장 애니메이션 — 아래에서 스르륵 올라오고 배경은 페이드 인 */
+@keyframes sheet-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-sheet-slide-up {
+  animation: sheet-slide-up 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes backdrop-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-backdrop-fade {
+  animation: backdrop-fade 0.25s ease-out;
+}
+
 /* 망고커플 키우기(MangoCouple) 반응 이펙트 */
 @keyframes care-float {
   0% { transform: translateY(8px) scale(0.7); opacity: 0; }
@@ -173,7 +192,8 @@ body {
   .animate-intro-tap-hint,
   .animate-care-float,
   .animate-care-wind,
-  .animate-care-wiggle {
+  .animate-care-wiggle,
+  .animate-sheet-slide-up {
     animation: none;
   }
 }

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-/** 주소를 클립보드에 복사해 지도 앱에 바로 붙여넣을 수 있게 하는 버튼. */
-export default function CopyAddressButton({ address, className }) {
+/** 주소를 클립보드에 복사해 지도 앱에 바로 붙여넣을 수 있게 하는 버튼. label로 아이콘만 표시 가능. */
+export default function CopyAddressButton({ address, className, label, copiedLabel }) {
   const [copied, setCopied] = useState(false);
 
-  const copy = async () => {
+  const copy = async (e) => {
+    e.stopPropagation(); // 클릭 가능한 카드 안에서도 카드 열림 없이 복사만 되도록
     try {
       await navigator.clipboard.writeText(address);
     } catch {
@@ -22,8 +23,8 @@ export default function CopyAddressButton({ address, className }) {
   };
 
   return (
-    <button type="button" onClick={copy} className={className}>
-      {copied ? '주소 복사됨' : '주소 복사'}
+    <button type="button" onClick={copy} className={className} aria-label="주소 복사">
+      {copied ? (copiedLabel ?? '주소 복사됨') : (label ?? '주소 복사')}
     </button>
   );
 }

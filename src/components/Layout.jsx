@@ -1,7 +1,6 @@
 const TABS = [
   { id: 'dashboard', label: '홈' },
   { id: 'itinerary', label: '일정' },
-  { id: 'places', label: '스팟' },
   { id: 'archive', label: '보관함' },
 ];
 
