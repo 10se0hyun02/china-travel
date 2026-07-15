@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 
 /**
  * "라벨: 내용" 형태의 불릿은 라벨을 굵게 분리해 가독성을 높인다.
- * 라벨은 30자 이내 + 콜론 뒤 공백이 있을 때만 인식 (시간 표기 07:30 등은 오인식 안 됨).
+ * 라벨은 45자 이내 + 콜론 뒤 공백이 있을 때만 인식 (시간 표기 07:30 등은 오인식 안 됨).
+ * "라벨 : 내용"처럼 콜론 앞에 공백이 있는 표기도 허용.
  */
-function BulletLine({ line }) {
-  const m = line.match(/^(.{1,30}?)[:：]\s(.*)$/s);
+export function BulletLine({ line }) {
+  const m = line.match(/^(.{1,45}?)\s*[:：]\s(.*)$/s);
   if (!m) return <span>{line}</span>;
   return (
     <span>

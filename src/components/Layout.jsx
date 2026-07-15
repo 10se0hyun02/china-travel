@@ -2,6 +2,7 @@ const TABS = [
   { id: 'dashboard', label: '홈' },
   { id: 'itinerary', label: '일정' },
   { id: 'archive', label: '보관함' },
+  { id: 'info', label: '정보' },
 ];
 
 export default function Layout({ activeTab, onTabChange, children }) {
