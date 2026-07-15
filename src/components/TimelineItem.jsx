@@ -10,7 +10,7 @@ const TYPE_ICONS = {
 
 /**
  * 일정 탭 타임라인 카드. spot은 travelData.spots에서 spotId로 해석해 내려받는다.
- * 카드 전체가 클릭 영역(장소 상세 바텀시트), 중문명 옆 아이콘으로 기사님용 확대·주소 복사.
+ * 카드 전체가 클릭 영역(장소 상세 바텀시트), 중문명 옆 아이콘으로 기사님용 확대·한자 상호명 복사(지도 앱 붙여넣기용).
  * item.sub가 true면 메인 일정이 아닌 보조 쇼핑 팁으로 들여쓰기·점선 카드로 구분해 표시.
  */
 export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver }) {
@@ -44,7 +44,9 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
         }`}
       >
         <div className="flex items-center justify-between gap-2">
-          <span className={`text-xs font-bold ${sub ? 'text-rose-400' : 'text-sky-500'}`}>{item.time}</span>
+          <span className={`text-xs font-bold ${sub ? 'text-rose-400' : 'text-sky-500'}`}>
+            {item.time || '언제든'}
+          </span>
           <div className="flex items-center gap-1.5">
             {sub && (
               <span className="text-[10px] font-bold text-rose-400 bg-rose-100 rounded-full px-1.5 py-0.5">
@@ -72,9 +74,9 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
               🔍
             </button>
           )}
-          {spot?.addr && (
+          {spot?.name_zh && (
             <CopyAddressButton
-              address={spot.addr}
+              address={spot.name_zh}
               label="📋"
               copiedLabel="✅"
               className="text-sm leading-none"
@@ -83,7 +85,7 @@ export default function TimelineItem({ item, spot, isLast, onOpen, onShowDriver 
         </div>
 
         {item.memo && (
-          <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{item.memo}</p>
+          <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{item.memo}</p>
         )}
       </div>
     </div>

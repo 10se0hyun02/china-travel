@@ -3,12 +3,11 @@ import { travelData } from '../data/travelData.js';
 import TimelineItem from '../components/TimelineItem.jsx';
 import ImageModal from '../components/ImageModal.jsx';
 import SpotDetailModal from '../components/SpotDetailModal.jsx';
-import UndecidedList from '../components/UndecidedList.jsx';
 
 export default function Itinerary() {
   const [driver, setDriver] = useState(null); // 기사님용 중문 확대 모달
   const [detail, setDetail] = useState(null); // 장소 상세 바텀시트에 띄울 spot
-  const { spots, timelines, undecided } = travelData;
+  const { spots, timelines, flexSpots } = travelData;
 
   const showDriver = (spot) => setDriver({ text: [spot.name_zh, spot.addr] });
 
@@ -44,7 +43,29 @@ export default function Itinerary() {
         </section>
       ))}
 
-      <UndecidedList undecided={undecided} spots={spots} onOpenSpot={setDetail} />
+      {flexSpots?.length > 0 && (
+        <section>
+          <div className="flex items-baseline gap-2 mb-3">
+            <span className="bg-amber-400 text-white text-xs font-bold rounded-full px-2.5 py-1">TIP</span>
+            <span className="text-sm font-bold text-gray-700">비어있는 시간 활용하기</span>
+          </div>
+
+          {flexSpots.map((item, i) => {
+            const delay = Math.min(cardIndex++, 10) * 0.05;
+            return (
+              <div key={i} className="animate-card-in" style={{ animationDelay: `${delay}s` }}>
+                <TimelineItem
+                  item={item}
+                  spot={spots[item.spotId]}
+                  isLast={i === flexSpots.length - 1}
+                  onOpen={(it, spot) => setDetail(spot)}
+                  onShowDriver={showDriver}
+                />
+              </div>
+            );
+          })}
+        </section>
+      )}
 
       <SpotDetailModal open={!!detail} onClose={() => setDetail(null)} spot={detail} />
       <ImageModal open={!!driver} onClose={() => setDriver(null)} {...(driver || {})} />
