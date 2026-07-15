@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Layout from './components/Layout.jsx';
+import Intro from './components/Intro.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Itinerary from './pages/Itinerary.jsx';
 import Places from './pages/Places.jsx';
@@ -14,11 +15,15 @@ const PAGES = {
 
 export default function App() {
   const [tab, setTab] = useState('dashboard');
+  const [showIntro, setShowIntro] = useState(true);
   const Page = PAGES[tab];
 
   return (
-    <Layout activeTab={tab} onTabChange={setTab}>
-      <Page />
-    </Layout>
+    <>
+      {showIntro && <Intro onDone={() => setShowIntro(false)} />}
+      <Layout activeTab={tab} onTabChange={setTab}>
+        <Page />
+      </Layout>
+    </>
   );
 }
