@@ -23,6 +23,7 @@ const ITEMS = [
   , { category: 'pack', text: '휴대용 선풍기' }
   , { category: 'pack', text: '여분의 양말' }
   , { category: 'pack', text: '잠옷 · 실내복' }
+  , { category: 'pack', text: '휴대용 우산 · 우비 (소나기 예보 대비)' }
 ];
 
 const TABS = [

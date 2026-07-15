@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
  * - image 전달 시: 바우처 이미지 뷰어. 모달이 열릴 때만 <img>를 렌더링하는
  *   레이지 로딩 규칙(명세서 4번)의 실행 지점 — 목록 화면에는 <img>가 존재하지 않는다.
  * - text 전달 시: Show Driver Mode. 화이트 배경 풀스크린에 중문 텍스트만
- *   text-4xl font-bold로 표시해 기사님께 제시.
+ *   text-4xl font-bold로 표시해 기사님께 제시. note를 함께 전달하면
+ *   그 아래 작은 회색 글씨로 영어 문장을 덧붙여 보여준다(여행자 본인 확인용).
  */
-export default function ImageModal({ open, onClose, title, image, text }) {
+export default function ImageModal({ open, onClose, title, image, text, note }) {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function ImageModal({ open, onClose, title, image, text }) {
             {line}
           </p>
         ))}
+        {note && <p className="text-base text-gray-400 text-center break-keep">{note}</p>}
         <p className="absolute bottom-8 text-sm text-gray-300">화면을 누르면 닫혀요</p>
       </div>
     );

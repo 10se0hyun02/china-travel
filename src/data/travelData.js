@@ -277,6 +277,65 @@ export const travelData = {
       name_ko: "버즈 라이트이어 행성 구조대", name_zh: "巴斯光年星际营救"
       , tip: "트론과 함께 대기시간이 가장 긴 어트랙션 중 하나 - DPA로 트론과 연달아 탑승하는 동선 추천"
     }
+    , "zootopia_hot_pursuit": {
+      name_ko: "주토피아: 열혈 추적", name_zh: "疯狂动物城：热力追踪"
+      , tip: "DPA가 없는 구역이라 오픈런 최우선 - 입장하자마자 바로 이동할 것"
+    }
+    , "tron_lightcycle": {
+      name_ko: "트론 라이트사이클 파워런", name_zh: "创极速光轮"
+      , tip: "투모로우랜드 - 버즈 라이트이어와 함께 대기시간 최장급, DPA로 연달아 탑승 추천"
+    }
+    , "peter_pan_flight": {
+      name_ko: "피터팬 날아가는 하늘", name_zh: "小飞侠天空奇遇"
+      , tip: "판타지랜드 - DPA 없이 일반 대기로 가볍게 즐기기 좋음"
+    }
+    , "seven_dwarfs_mine_train": {
+      name_ko: "일곱 난쟁이 광산 열차", name_zh: "七个小矮人矿山车"
+      , tip: "판타지랜드 - 백설공주 테마 롤러코스터, 일반 대기로 이용"
+    }
+    , "tribal_table": {
+      name_ko: "부락 풍성당 (Tribal Table)", name_zh: "部落丰盛堂"
+      , tip: "탐험섬(探险岛) 안에 있는 실속 있는 식사 - 시그니처는 화덕에 구운 통 칠면조 다리"
+      , detail: {
+        sections: [
+          {
+            heading: "위치"
+            , lines: ["탐험섬(探险岛) 내 - 소어링 오버 더 호라이즌 근처"]
+          }
+          , {
+            heading: "추천 메뉴"
+            , lines: [
+              "화덕 칠면조 다리(부락 烤火鸡腿饭): 시그니처 메뉴"
+              , "궁보계반(宫保鸡饭): 한국인 입맛에 무난한 중식 덮밥"
+              , "흑후추 우육반(黑椒牛柳): 블랙페퍼 소스 소고기 덮밥"
+            ]
+          }
+        ]
+      }
+    }
+    , "tomorrowland_terrace": {
+      name_ko: "스타 라운지 (星露台餐厅)", name_zh: "星露台餐厅"
+      , tip: "투모로우랜드 안 야외 테라스석 - 파크 전망 보며 먹는 햄버거·치킨텐더"
+      , detail: {
+        sections: [
+          {
+            heading: "위치"
+            , lines: ["투모로우랜드 내 - 트론·버즈 라이트이어 근처"]
+          }
+          , {
+            heading: "추천 메뉴"
+            , lines: [
+              "햄버거 세트: ¥75~80 - 시그니처 메뉴"
+              , "치킨텐더 · 시저 샐러드: 가볍게 먹기 좋음"
+            ]
+          }
+        ]
+      }
+    }
+    , "pirates_stunt_show": {
+      name_ko: "캐리비안 해적 스턴트쇼", name_zh: "风暴来临——杰克船长之惊天特技大冒险"
+      , tip: "보물만(宝藏湾) 판다고 극장(凡迭戈剧院) - 오후 피크타임에 에어컨 쐬며 쉬어가기 좋은 실내 공연"
+    }
     , "disneyland": {
       name_ko: "상하이 디즈니랜드", name_zh: "上海迪士尼乐园", addr: "上海市浦东新区川沙新镇黄赵路310号"
       , tip: "대기 시간을 줄이려면 줄이 빠르게 빠지는 '싱글 라이더(Single Rider)' 전용 라인을 적극 활용할 것"
@@ -367,8 +426,8 @@ export const travelData = {
           , {
             heading: "맛집 핫스팟"
             , lines: [
-              "폴룩스(Polux by Paul Pairet): 미슐랭 3스타 셰프의 캐주얼 프렌치 비스트로. '인생 프렌치토스트'로 소문나 브런치 웨이팅이 엄청남 - 테라스 자리는 오픈 시간(오전 9시)에 맞춰 갈 것. 추천 메뉴: 프렌치토스트, 에그 베네딕트."
-              , "예상해(Ye Shanghai, 夜上海): 1920년대 상하이 감성의 미슐랭 가이드 단골 레스토랑. 시그니처는 껍질 바삭한 북경오리와 홍샤오로우(상하이식 돼지고기 조림). 인기 많아 다중디엔핑 앱·위챗 사전 예약 강력 추천. 예산 1인 300~400위안 - 비싸지만 돈값 한다는 평."
+              "폴룩스(Polux by Paul Pairet): 미슐랭 3스타 셰프의 캐주얼 프렌치 비스트로 - 오늘 아침 브런치로 일정에 넣어둠(아래 카드 참고)."
+              , "예상해(夜上海): 1920년대 상하이 감성의 미슐랭 가이드 단골 레스토랑 - 오늘 저녁 식사로 일정에 넣어둠(아래 카드 참고)."
             ]
           }
           , {
@@ -384,6 +443,52 @@ export const travelData = {
             , lines: [
               "상하이에서 물가가 가장 비싼 지역 중 하나 - 식당·카페 가격대가 꽤 높음."
               , "저녁 도로변은 정체가 심하므로 도보로 큰길가에 나와서 택시를 잡는 것이 유리."
+            ]
+          }
+        ]
+      }
+    }
+    , "polux_xintiandi": {
+      name_ko: "폴룩스 (Polux by Paul Pairet)", name_zh: "Polux by Paul Pairet", addr: "上海市太仓路181弄5号 (新天地北里)"
+      , tip: "미슐랭 3스타 셰프 폴 페레의 캐주얼 프렌치 비스트로 - '인생 프렌치토스트'로 브런치 웨이팅이 엄청남"
+      , detail: {
+        sections: [
+          {
+            heading: "영업시간 · 팁"
+            , lines: [
+              "영업시간: 09:00~22:30"
+              , "테라스 자리: 오픈 시간(오전 9시)에 맞춰 가야 웨이팅 없이 앉을 수 있음"
+            ]
+          }
+          , {
+            heading: "추천 메뉴"
+            , lines: [
+              "프렌치토스트: 시그니처 메뉴 - 이거 먹으러 오는 집"
+              , "에그 베네딕트: 브런치 대표 메뉴"
+            ]
+          }
+        ]
+      }
+    }
+    , "ye_shanghai_xintiandi": {
+      name_ko: "예상해 (夜上海)", name_zh: "夜上海", addr: "上海市黄陂南路338号 新天地北里1层"
+      , tip: "1920년대 상하이 감성의 미슐랭 가이드 단골 본방채 레스토랑 - 인기 많아 사전 예약 강력 추천"
+      , detail: {
+        sections: [
+          {
+            heading: "예약 · 영업시간"
+            , lines: [
+              "영업시간: 11:30~14:30(런치), 17:30~22:30(디너)"
+              , "예약: 다중디엔핑 앱이나 위챗으로 사전 예약 강력 추천 - 당일 웨이팅 길 수 있음"
+              , "금~일 저녁엔 라이브 재즈 공연도 있음"
+            ]
+          }
+          , {
+            heading: "추천 메뉴"
+            , lines: [
+              "북경오리: 껍질이 바삭한 시그니처 메뉴"
+              , "홍샤오러우(红烧肉): 상하이식 돼지고기 조림, 진한 양념"
+              , "예산: 1인 300~400위안대 - 비싸지만 돈값 한다는 평"
             ]
           }
         ]
@@ -471,6 +576,44 @@ export const travelData = {
         ]
       }
     }
+    , "zhuangshi_crab_noodle": {
+      name_ko: "장씨네 게살국수 (난징동루점)", name_zh: "庄氏隆兴·蟹粉面道(南京东路店)", addr: "上海市黄浦区浙江中路441号 近宁波路"
+      , tip: "1930년대부터 이어온 노포 - 손으로 직접 발라낸 게살을 볶아 올린 蟹粉面이 시그니처. 인민광장역 19번 출구에서 도보 630m"
+      , detail: {
+        sections: [
+          {
+            heading: "영업시간"
+            , lines: [
+              "참고 영업시간: 10:30~21:30 - 플랫폼마다 다르게 표시될 수 있어 방문 당일 高德地图·大众点评에서 재확인 필요"
+              , "추천 방문 시간: 10:30~11:30 또는 14:00~17:00 - 웨이팅 적음"
+              , "피하면 좋은 시간: 12:00~13:30, 18:00~19:30 - 점심·저녁 피크타임"
+            ]
+          }
+          , {
+            heading: "대표 메뉴"
+            , lines: [
+              "게살 비빔국수(蟹粉黄金捞面): 시그니처 메뉴, ¥168 전후 - 가장 추천"
+              , "게살 덮밥(蟹粉黄金捞饭): ¥168 전후"
+              , "게살 샤오롱바오(蟹粉小笼) · 게살 새우 샤오롱바오(蟹粉虾仁小笼): 사이드로 인기"
+              , "남유 돼지튀김(南乳炸猪排): 바삭한 식감, 사이드로 추천"
+              , "2인 추천 조합: 비빔국수 + 덮밥 + 샤오롱바오 + 돼지튀김 - 다양하게 맛보기 좋음"
+            ]
+          }
+          , {
+            heading: "주문할 때 이거 보여주기"
+            , phrasebook: true
+            , lines: [
+              "게살 비빔국수 하나 주세요: 请给我一份蟹粉黄金捞面 (칭 게이 워 이펀 시에펀 황진 라오미엔) · One crab roe noodle, please"
+              , "게살 덮밥 하나 주세요: 请给我一份蟹粉黄金捞饭 (칭 게이 워 이펀 시에펀 황진 라오판) · One crab roe rice bowl, please"
+              , "게살 샤오롱바오 하나 주세요: 请给我一份蟹粉小笼 (칭 게이 워 이펀 시에펀 샤오롱) · One crab roe xiaolongbao, please"
+              , "포장 가능한가요?: 可以打包吗 (커이 다바오 마) · Can I get this to go?"
+              , "알리페이 사용할 수 있나요?: 可以用支付宝吗 (커이 융 즈푸바오 마) · Can I pay with Alipay?"
+              , "따로 계산할 수 있나요?: 可以分开结账吗 (커이 펀카이 지에짱 마) · Can we split the bill?"
+            ]
+          }
+        ]
+      }
+    }
     , "haidilao_bund": {
       name_ko: "하이디라오 (와이탄점)", name_zh: "海底捞火锅(外滩店)", addr: "上海市黄浦区 (디디에 '海底捞 外滩' 검색 - 정확한 지점 확인)"
       , tip: "대기 중 네일아트·구두닦이까지 해주는 상상 초월 서비스 - 본토 하이디라오 체험 필수"
@@ -484,9 +627,10 @@ export const travelData = {
           }
           , {
             heading: "주문 꿀팁"
+            , phrasebook: true
             , lines: [
-              "부요우 샹차이(不要香菜): 고수 빼주세요."
-              , "부요우 마라(不要麻辣): 너무 맵고 얼얼하지 않게 해주세요."
+              "고수 빼주세요: 不要香菜 (부야오 샹차이) · No cilantro, please"
+              , "너무 맵지 않게 해주세요: 不要麻辣 (부야오 마라) · Not too spicy, please"
             ]
           }
         ]
@@ -652,7 +796,7 @@ export const travelData = {
   }
   , timelines: [
     {
-      day: 1, date: "07/16 (목)", desc: "상해 입국 & 랜드마크 야경"
+      day: 1, date: "07/16 (목)", desc: "상해 입국 & 랜드마크 야경", theme: "rose"
       , items: [
         { time: "13:45", type: "transport", spotId: "pudong_airport", memo: "인천 12:35 출발 → 상해 13:45 도착(현지시간)" }
         , { time: "15:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크인 & 짐 풀기" }
@@ -665,20 +809,29 @@ export const travelData = {
       ]
     }
     , {
-      day: 2, date: "07/17 (금)", desc: "상하이 디즈니랜드 올데이"
+      day: 2, date: "07/17 (금)", desc: "상하이 디즈니랜드 올데이", theme: "disney"
       , items: [
-        { time: "08:00", type: "sight", spotId: "disneyland", memo: "오픈런! 평일이지만 7월 방학 시즌이라 붐빌 수 있음" }
-        , { time: "08:15", type: "food", spotId: "coconut_coffee_disney", memo: "입장 직후 성 보며 오른쪽 카페", sub: true, badge: "수정 추천" }
-        , { time: "12:30", type: "sight", spotId: "soaring_over_horizon", memo: "DPA로 5~10분 컷 탑승", badge: "수정 추천" }
-        , { time: "14:30", type: "sight", spotId: "pirates_caribbean", memo: "일반 대기, 회전율 빨라서 금방 탑승", badge: "수정 추천" }
+        { time: "08:00", type: "sight", spotId: "disneyland", memo: "오픈런! 평일이지만 7월 방학 시즌이라 붐빌 수 있음 - 트론·소어링·버즈는 앱으로 DPA 미리 확보" }
+        , { time: "08:10", type: "sight", spotId: "zootopia_hot_pursuit", memo: "DPA 없는 구역이라 오픈런 최우선 - 다른 건 다 제쳐두고 여기부터" }
+        , { time: "09:30", type: "food", spotId: "coconut_coffee_disney", memo: "주토피아 타고 나온 뒤 커피 한 잔", sub: true, badge: "수정 추천" }
+        , { time: "10:00", type: "sight", spotId: "peter_pan_flight", memo: "판타지랜드, 일반 대기로 가볍게" }
+        , { time: "11:00", type: "sight", spotId: "seven_dwarfs_mine_train", memo: "판타지랜드, 일반 대기" }
+        , { time: "12:00", type: "food", spotId: "tribal_table", memo: "탐험섬에서 점심 - 소어링 DPA 타기 전에 미리 먹기" }
+        , { time: "12:30", type: "sight", spotId: "soaring_over_horizon", memo: "점심 시간 전후 DPA로 5~10분 컷 탑승", badge: "수정 추천" }
+        , { time: "14:00", type: "sight", spotId: "pirates_caribbean", memo: "일반 대기, 회전율 빨라서 금방 탑승", badge: "수정 추천" }
+        , { time: "15:00", type: "sight", spotId: "buzz_lightyear", memo: "투모로우랜드 - 트론과 DPA 연달아" }
+        , { time: "15:20", type: "sight", spotId: "tron_lightcycle", memo: "버즈 타고 바로 이어서 DPA 탑승" }
+        , { time: "15:45", type: "sight", spotId: "pirates_stunt_show", memo: "오후 피크타임, 실내에서 에어컨 쐬며 휴식", sub: true }
+        , { time: "17:00", type: "food", spotId: "tomorrowland_terrace", memo: "불꽃놀이 전에 미리 저녁 - 투모로우랜드 테라스에서" }
         , { time: "18:00", type: "shopping", spotId: "shop_disney_goods", memo: "불꽃놀이 전 굿즈 쇼핑 끝내기", sub: true }
         , { time: "20:00", type: "sight", spotId: "disneyland", memo: "일루미네이션 불꽃놀이 관람 - 중간중간 실내에서 휴식 필수" }
       ]
     }
     , {
-      day: 3, date: "07/18 (토)", desc: "조계지 트렌디 & 역사 코스"
+      day: 3, date: "07/18 (토)", desc: "조계지 트렌디 & 역사 코스", theme: "sky"
       , items: [
-        { time: "10:00", type: "sight", spotId: "kr_provisional_gov", memo: "오전 한산할 때 차분하게 관람" }
+        { time: "09:00", type: "food", spotId: "polux_xintiandi", memo: "오픈 시간 맞춰 테라스석 - 프렌치토스트 먹기" }
+        , { time: "10:00", type: "sight", spotId: "kr_provisional_gov", memo: "오전 한산할 때 차분하게 관람" }
         , { time: "12:30", type: "food", spotId: "xinyueshi", memo: "광둥식 딤섬 점심 - 하가우·크리스피 창펀 필수" }
         , { time: "14:00", type: "shopping", spotId: "shop_xintiandi_harmay", memo: "하메이 신천지점 화장품·향수 쇼핑", sub: true }
         , { time: "14:30", type: "sight", spotId: "xintiandi", memo: "식후 카페·골목 산책 & 쇼핑" }
@@ -686,14 +839,16 @@ export const travelData = {
         , { time: "16:00", type: "sight", spotId: "wukang_road", memo: "우캉맨션 앞에서 인생샷 남기기" }
         , { time: "16:30", type: "shopping", spotId: "shop_wukang_qingzhi", memo: "칭즈 생일 핸드크림 & 하메이 우캉루점", sub: true }
         , { time: "18:30", type: "sight", spotId: "yuyuan", memo: "황금빛 조명 켜진 상점가 야경 산책 (유료 정원은 16:30 마감이라 상점가 위주)" }
+        , { time: "19:30", type: "food", spotId: "ye_shanghai_xintiandi", memo: "신천지로 돌아와 저녁 - 북경오리·홍샤오러우, 예약 필수" }
       ]
     }
     , {
-      day: 4, date: "07/19 (일)", desc: "귀국일 - 오전 미정, 오후 출국"
+      day: 4, date: "07/19 (일)", desc: "귀국일 - 오전 미정, 오후 출국", theme: "emerald"
       , items: [
         { time: "10:00", type: "shopping", spotId: "shop_jiuguang", memo: "릴리안 베이커리 & 지하 슈퍼마켓 쇼핑", sub: true }
         , { time: "10:45", type: "shopping", spotId: "shop_reel_mall", memo: "릴몰 미니소 & 패밀리마트", sub: true }
-        , { time: "13:00", type: "hotel", spotId: "hotel_jinglai", memo: "체크아웃 & 공항 이동" }
+        , { time: "11:30", type: "hotel", spotId: "hotel_jinglai", memo: "체크아웃, 짐 챙겨서 출발" }
+        , { time: "12:00", type: "food", spotId: "zhuangshi_crab_noodle", memo: "체크아웃 후 인민광장 쪽으로 이동해서 마지막 한 끼" }
         , { time: "16:50", type: "transport", spotId: "pudong_airport", memo: "상해 16:50 출발 → 인천 20:05 도착 예정" }
       ]
     }
@@ -767,46 +922,85 @@ export const travelData = {
       ]
     }
     , {
+      icon: "🛂"
+      , title: "출입국 신고 안내"
+      , sections: [
+        {
+          heading: "무비자 입국"
+          , lines: [
+            "대한민국 일반여권 소지자는 무비자로 최대 30일 체류 가능(2024년 11월 말부터 시행)."
+          ]
+        }
+        , {
+          heading: "전자 입국신고서 (필수, 종이 신고서 폐지)"
+          , lines: [
+            "2025년 11월 20일부터 종이 입국신고서가 사라지고 전자 입국신고서로 전면 대체됨."
+            , "사전 작성: 출발 6일 전부터 공식 사이트(s.nia.gov.cn) 또는 위챗·알리페이 미니프로그램에서 작성 가능 - 완료 후 발급되는 QR코드를 스크린샷으로 저장해둘 것."
+            , "현장 작성: 미리 못했다면 공항 입국장에 비치된 QR코드를 스캔해 그 자리에서도 작성 가능."
+          ]
+        }
+        , {
+          heading: "푸동공항 입국 절차 순서"
+          , lines: [
+            "1. 지문 인식기에서 여권 스캔 + 지문 등록 → 등록 완료 바우처 출력"
+            , "2. 입국심사대에서 여권·전자 입국신고서 QR코드 제시"
+            , "3. 수하물 찾기"
+            , "4. 세관 검사 - 신고할 물품이 없으면 무신고(초록) 통로, 있으면 신고(빨강) 통로로"
+          ]
+        }
+        , {
+          heading: "세관 신고 대상"
+          , lines: [
+            "현금: 미화 1만 달러(또는 동일 가치) 초과 소지 시 신고 필요."
+            , "전자기기: 상업용으로 보일 수 있는 다수의 휴대폰·카메라 등은 신고 대상이 될 수 있음."
+          ]
+        }
+      ]
+    }
+    , {
       icon: "💬"
       , title: "필수 중국어 회화 (호텔 · 식당 · 택시)"
       , sections: [
         {
           heading: "호텔에서"
+          , phrasebook: true // 각 문장 옆 돋보기 버튼으로 중문만 풀스크린 확대(Show Driver Mode 재사용)
           , lines: [
-            "체크인 할게요: 我要办理入住 (워 야오 빤리 루주)"
-            , "체크아웃 할게요: 我要退房 (워 야오 투이팡)"
-            , "예약했어요: 我有预订 (워 여우 위띵)"
-            , "여권이요: 这是我的护照 (쩌 스 워더 후자오)"
-            , "와이파이 비번이 뭐예요?: Wifi密码是多少 (와이파이 미마 스 뚜오샤오)"
-            , "짐 좀 맡아주세요: 可以帮我寄存行李吗 (커이 빵 워 지춘 싱리 마)"
-            , "조식은 몇 시부터예요?: 早餐几点开始 (자오찬 지디엔 카이스)"
-            , "방에 문제가 있어요: 房间有问题 (팡지엔 여우 원티)"
+            "체크인 할게요: 我要办理入住 (워 야오 빤리 루주) · I'd like to check in"
+            , "체크아웃 할게요: 我要退房 (워 야오 투이팡) · I'd like to check out"
+            , "예약했어요: 我有预订 (워 여우 위띵) · I have a reservation"
+            , "여권이요: 这是我的护照 (쩌 스 워더 후자오) · Here's my passport"
+            , "와이파이 비번이 뭐예요?: Wifi密码是多少 (와이파이 미마 스 뚜오샤오) · What's the wifi password?"
+            , "짐 좀 맡아주세요: 可以帮我寄存行李吗 (커이 빵 워 지춘 싱리 마) · Can you hold my luggage?"
+            , "조식은 몇 시부터예요?: 早餐几点开始 (자오찬 지디엔 카이스) · What time does breakfast start?"
+            , "방에 문제가 있어요: 房间有问题 (팡지엔 여우 원티) · There's a problem with my room"
           ]
         }
         , {
           heading: "식당에서"
+          , phrasebook: true
           , lines: [
-            "두 명이요: 两位 (량웨이)"
-            , "메뉴판 주세요: 请给我菜单 (칭 게이 워 차이딴)"
-            , "이거 주세요 (메뉴 가리키며): 我要这个 (워 야오 쩌거)"
-            , "맵지 않게 해주세요: 不要辣 (부야오 라)"
-            , "물 좀 주세요: 请给我水 (칭 게이 워 슈이)"
-            , "포장해주세요: 打包 (다바오)"
-            , "계산할게요: 买单 (마이딴)"
-            , "화장실이 어디예요?: 洗手间在哪里 (시셔우지엔 짜이 나리)"
+            "두 명이요: 两位 (량웨이) · Table for two"
+            , "메뉴판 주세요: 请给我菜单 (칭 게이 워 차이딴) · Menu, please"
+            , "이거 주세요 (메뉴 가리키며): 我要这个 (워 야오 쩌거) · I'll have this"
+            , "맵지 않게 해주세요: 不要辣 (부야오 라) · Not spicy, please"
+            , "물 좀 주세요: 请给我水 (칭 게이 워 슈이) · Water, please"
+            , "포장해주세요: 打包 (다바오) · To go, please"
+            , "계산할게요: 买单 (마이딴) · Check, please"
+            , "화장실이 어디예요?: 洗手间在哪里 (시셔우지엔 짜이 나리) · Where's the restroom?"
           ]
         }
         , {
           heading: "택시 · 디디에서"
+          , phrasebook: true
           , lines: [
-            "여기로 가주세요 (주소 보여주며): 请到这里 (칭 따오 쩌리)"
-            , "얼마예요?: 多少钱 (뚜오샤오 치엔)"
-            , "카드 결제 되나요?: 可以刷卡吗 (커이 슈아카 마)"
-            , "여기서 세워주세요: 请停在这里 (칭 팅짜이 쩌리)"
-            , "트렁크 열어주세요: 请打开后备箱 (칭 다카이 허우베이샹)"
-            , "좀 빨리 가주세요: 请快一点 (칭 콰이 이디엔)"
-            , "얼마나 걸려요?: 大概要多久 (따가이 야오 뚜오지우)"
-            , "잠시만 기다려주세요: 请稍等 (칭 샤오덩)"
+            "여기로 가주세요 (주소 보여주며): 请到这里 (칭 따오 쩌리) · Take me here, please"
+            , "얼마예요?: 多少钱 (뚜오샤오 치엔) · How much is it?"
+            , "카드 결제 되나요?: 可以刷卡吗 (커이 슈아카 마) · Can I pay by card?"
+            , "여기서 세워주세요: 请停在这里 (칭 팅짜이 쩌리) · Please stop here"
+            , "트렁크 열어주세요: 请打开后备箱 (칭 다카이 허우베이샹) · Please open the trunk"
+            , "좀 빨리 가주세요: 请快一点 (칭 콰이 이디엔) · Please go a bit faster"
+            , "얼마나 걸려요?: 大概要多久 (따가이 야오 뚜오지우) · How long will it take?"
+            , "잠시만 기다려주세요: 请稍等 (칭 샤오덩) · Please wait a moment"
           ]
         }
       ]
@@ -974,6 +1168,18 @@ export const travelData = {
           ]
         }
         , {
+          heading: "🔍 하이디라오 주문할 때 이거 보여주기"
+          , phrasebook: true
+          , lines: [
+            "탕 네 칸으로 나눠주세요: 四宫格 (쓰 꽁 거) · Please split the soup pot into 4 sections"
+            , "반 인분으로 주세요: 半份 (빤 펀) · Half portion, please"
+            , "차돌박이 소고기: 肥牛 (페이 니우) · Thinly sliced beef"
+            , "소고기: 牛肉 (니우 러우) · Beef"
+            , "양고기: 羊肉 (양 러우) · Lamb"
+            , "맹물(맑은 육수): 清汤 (칭 탕) · Plain clear broth"
+          ]
+        }
+        , {
           heading: "상하이 고수들만 쓰는 팁"
           , lines: [
             "택시 호출: 디디 대신 '고덕지도(高德地图)'로 부르기 - 디디·T3·차오차오 등 거의 모든 택시 플랫폼을 한 번에 연동해서 검색해줘서 피크타임·우천 시 디디보다 훨씬 빨리 잡힘. 결제는 그대로 알리페이 연동."
@@ -1017,7 +1223,7 @@ export const travelData = {
               , "노쇼 시 예약 요금 100% 청구"
             ]
           }
-          , { heading: "예약처", lines: ["Agoda · 결제 MasterCard 끝자리 1152 (약 USD 374)"] }
+          , { heading: "예약처", lines: ["Agoda · 결제 MasterCard 끝자리 1152 (약 USD 374)", "투숙객용 참조번호: 1693798662"] }
           , { heading: "숙소 연락처", lines: ["+86 13917532728"] }
         ]
       }
@@ -1027,8 +1233,22 @@ export const travelData = {
         , title: "항공권 정보 (2인)"
         , subtitle: "2026-07-16 ~ 2026-07-19 · 주문번호 1111-851-777"
         , sections: [
-          { heading: "가는편", lines: ["2026-07-16 (목) 12:35 인천(ICN) 출발 → 13:45 상하이(PVG) 도착 (2시간 10분)"] }
-          , { heading: "오는편", lines: ["2026-07-19 (일) 16:50 상하이(PVG) 출발 → 20:05 인천(ICN) 도착 (2시간 15분)"] }
+          {
+            heading: "가는편"
+            , lines: [
+              "China Southern Airlines CZ314"
+              , "2026-07-16 (목) 12:35 인천(ICN) 출발 → 13:45 상하이(PVG) 도착 (2시간 10분)"
+              , "항공사 체크인 참조사항(PNR): PBX1WT"
+            ]
+          }
+          , {
+            heading: "오는편"
+            , lines: [
+              "China Southern Airlines CZ369"
+              , "2026-07-19 (일) 16:50 상하이(PVG) 출발 → 20:05 인천(ICN) 도착 (2시간 15분)"
+              , "항공사 체크인 참조사항(PNR): PBX1WT"
+            ]
+          }
           , {
             heading: "탑승객"
             , lines: ["CHO SEOHYUN (전자항공권 7849553235726)", "KIM MINKYEOM (전자항공권 7849553235727)"]
