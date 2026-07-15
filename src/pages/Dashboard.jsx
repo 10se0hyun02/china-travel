@@ -4,7 +4,7 @@ import MangoCouple from '../components/MangoCouple.jsx';
 import WeatherForecast from '../components/WeatherForecast.jsx';
 
 export default function Dashboard() {
-  const { meta, weather } = travelData;
+  const { weather } = travelData;
 
   return (
     <div className="space-y-4">
@@ -12,20 +12,11 @@ export default function Dashboard() {
         <MangoCouple />
       </div>
 
-      <div
-        className="animate-card-in bg-white rounded-2xl shadow-sm border border-rose-100 p-4 text-center"
-        style={{ animationDelay: '0.08s' }}
-      >
-        <p className="text-sm text-gray-500">
-          {meta.startDate} ~ {meta.endDate}
-        </p>
-      </div>
-
-      <div className="animate-card-in" style={{ animationDelay: '0.16s' }}>
+      <div className="animate-card-in" style={{ animationDelay: '0.08s' }}>
         <WeatherForecast days={weather} />
       </div>
 
-      <div className="animate-card-in" style={{ animationDelay: '0.24s' }}>
+      <div className="animate-card-in" style={{ animationDelay: '0.16s' }}>
         <CurrencyConverter />
       </div>
     </div>
