@@ -586,8 +586,6 @@ export default function MangoCouple() {
               const prog = maxed
                 ? 100
                 : ((n - CUMULATIVE[lvIdx]) / LEVEL_THRESHOLDS[lvIdx]) * 100;
-              const within = maxed ? LEVEL_THRESHOLDS[lvIdx - 1] : n - CUMULATIVE[lvIdx];
-              const needed = maxed ? LEVEL_THRESHOLDS[lvIdx - 1] : LEVEL_THRESHOLDS[lvIdx];
               return (
                 <button
                   key={k}
@@ -609,13 +607,8 @@ export default function MangoCouple() {
                       style={{ width: `${prog}%` }}
                     />
                   </div>
-                  <div className="mt-0.5 flex items-center justify-between">
+                  <div className="mt-0.5">
                     <p className="text-[11px] font-semibold text-gray-400">{LEVEL_TITLES[lv - 1]}</p>
-                    {!maxed && (
-                      <p className="text-[10px] text-gray-300">
-                        {within}/{needed}
-                      </p>
-                    )}
                   </div>
                 </button>
               );
