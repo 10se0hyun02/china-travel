@@ -379,19 +379,19 @@ export default function Itinerary() {
               </>
             )}
 
-            <div className="flex items-baseline gap-2 mb-3">
-              <span className={`${theme.badge} text-xs font-bold rounded-full px-2.5 py-1`}>
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`${theme.badge} text-xs font-bold rounded-full px-2.5 py-1 shrink-0`}>
                 DAY {day.day}
               </span>
-              <span className="text-sm font-bold text-gray-700">{day.date}</span>
-              <span className="text-xs text-gray-400">{day.desc}</span>
+              <span className="text-sm font-bold text-gray-700 shrink-0">{day.date}</span>
+              <span className="text-xs text-gray-400 truncate">{day.desc}</span>
               {hiddenIds.length > 0 && (
-                <span className="text-[11px] text-gray-400">숨김 {hiddenIds.length}개</span>
+                <span className="text-[11px] text-gray-400 shrink-0">숨김 {hiddenIds.length}개</span>
               )}
               <button
                 type="button"
                 onClick={() => resetDay(day.day)}
-                className="ml-auto text-[11px] font-semibold text-sky-400"
+                className="ml-auto text-[11px] font-semibold text-sky-400 shrink-0"
               >
                 초기화
               </button>
