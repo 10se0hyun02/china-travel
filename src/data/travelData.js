@@ -324,6 +324,50 @@ export const travelData = {
       name_ko: "일곱 난쟁이 광산 열차", name_zh: "七个小矮人矿山车"
       , tip: "판타지랜드 - 백설공주 테마 롤러코스터, 일반 대기로 이용"
     }
+    , "whistle_stop_shop": {
+      name_ko: "휘슬 멈 샵", name_zh: "Whistle Stop Shop"
+      , tip: "파크 입장 직후 미키 에비뉴(메인 스트리트) 초입 오른쪽 - 머리띠·모자·착용 아이템 위주 콤팩트 큐레이션. 아베뉴 엠 아케이드보다 규모 작아서 5분 스나이퍼에 최적"
+    }
+    , "barbossa_grille": {
+      name_ko: "바르보사 그릴 / HEYTEA 디즈니타운", name_zh: "Barbossa's Bounty / 喜茶迪士尼小镇店"
+      , tip: "바르보사 그릴은 보물만(宝藏湾) 안 파크 내 레스토랑. HEYTEA는 손등 도장 찍고 디즈니타운으로 나가면 줄 짧음 - 12시 점심 + 에어컨 휴식 황금 타이밍"
+      , detail: {
+        sections: [
+          {
+            heading: "바르보사 그릴 (파크 내)"
+            , lines: [
+              "위치: 보물만(宝藏湾) 캐리비안 구역 내부 - 캐리비안의 해적 어트랙션 근처"
+              , "해적 테마 인테리어, 햄버거·핫도그·감자튀김 등 아메리칸 패스트푸드 위주"
+              , "파크 내 식당 중 회전율이 빨라 점심 피크에도 비교적 빠르게 자리 잡을 수 있음"
+            ]
+          }
+          , {
+            heading: "HEYTEA 디즈니타운 (파크 외)"
+            , lines: [
+              "파크 손등 도장 찍고 나가면 디즈니타운 입구 쪽에 HEYTEA 입점"
+              , "과일차·치즈폼 라인업이 풍부하고 파크 안 음료보다 저렴한 편"
+              , "점심 시간대 인파가 파크 안으로 몰려 있어 의외로 줄이 짧음"
+            ]
+          }
+        ]
+      }
+    }
+    , "avenue_m_arcade": {
+      name_ko: "아베뉴 엠 아케이드", name_zh: "Avenue M Arcade"
+      , tip: "미키 에비뉴(메인 스트리트) 가장 안쪽 초대형 디즈니 굿즈 플래그십 매장 - 14:30경 다들 기구 타러 이동해 매장이 한산해지는 것이 쇼핑 황금 타이밍"
+      , detail: {
+        sections: [
+          {
+            heading: "쇼핑 전략"
+            , lines: [
+              "아침 오픈런 때는 스킵하고 14:30 이후 입장 - 이 시간대가 가장 한산하고 에어컨 빵빵"
+              , "파크 내 가장 큰 매장이라 선물용 과자·쿠키 세트, 미키 귀 머리띠 풀 라인업, 텀블러·에코백 등 대용량 쇼핑 최적"
+              , "계산 줄이 짧을 때 선물 포장 서비스도 여유 있게 받을 수 있음"
+            ]
+          }
+        ]
+      }
+    }
     , "tribal_table": {
       name_ko: "부락 풍성당 (Tribal Table)", name_zh: "部落丰盛堂"
       , tip: "탐험섬(探险岛) 안에 있는 실속 있는 식사 - 시그니처는 화덕에 구운 통 칠면조 다리"
@@ -909,20 +953,18 @@ export const travelData = {
     , {
       day: 2, date: "07/17 (금)", desc: "상하이 디즈니랜드 올데이", theme: "disney"
       , items: [
-        { time: "08:00", type: "sight", spotId: "disneyland", memo: "오픈런! 평일이지만 7월 방학 시즌이라 붐빌 수 있음 - 트론·소어링·버즈는 앱으로 DPA 미리 확보" }
-        , { time: "08:10", type: "sight", spotId: "zootopia_hot_pursuit", memo: "DPA 없는 구역이라 오픈런 최우선 - 다른 건 다 제쳐두고 여기부터" }
-        , { time: "09:30", type: "food", spotId: "coconut_coffee_disney", memo: "주토피아 타고 나온 뒤 커피 한 잔", sub: true, badge: "수정 추천" }
-        , { time: "10:00", type: "sight", spotId: "peter_pan_flight", memo: "판타지랜드, 일반 대기로 가볍게" }
-        , { time: "11:00", type: "sight", spotId: "seven_dwarfs_mine_train", memo: "판타지랜드, 일반 대기" }
-        , { time: "12:00", type: "food", spotId: "tribal_table", memo: "탐험섬에서 점심 - 소어링 DPA 타기 전에 미리 먹기" }
-        , { time: "12:30", type: "sight", spotId: "soaring_over_horizon", memo: "점심 시간 전후 DPA로 5~10분 컷 탑승", badge: "수정 추천" }
-        , { time: "14:00", type: "sight", spotId: "pirates_caribbean", memo: "일반 대기, 회전율 빨라서 금방 탑승", badge: "수정 추천" }
-        , { time: "15:00", type: "sight", spotId: "buzz_lightyear", memo: "투모로우랜드 - 트론과 DPA 연달아" }
-        , { time: "15:20", type: "sight", spotId: "tron_lightcycle", memo: "버즈 타고 바로 이어서 DPA 탑승" }
-        , { time: "15:45", type: "sight", spotId: "pirates_stunt_show", memo: "오후 피크타임, 실내에서 에어컨 쐬며 휴식", sub: true }
+        { time: "08:00", type: "sight", spotId: "disneyland", memo: "입장! 오픈 직후 15분 안에 머리띠 스나이퍼 전략 시작" }
+        , { time: "08:30", type: "shopping", spotId: "whistle_stop_shop", memo: "닉·주디 머리띠 픽 → 알리페이 초고속 결제 → 바로 머리에 쓰기 🎯 최대 7분 컷 목표", badge: "🎯 Quick" }
+        , { time: "08:45", type: "sight", spotId: "zootopia_hot_pursuit", memo: "머리띠 풀셋업으로 주토피아 입성 🦊🐰 대기 라인 실내(에어컨)에서 오즈모로 인증샷·영상 마음껏" }
+        , { time: "10:00", type: "sight", spotId: "pirates_caribbean", memo: "보물섬으로 이동 - 전 세계 최대 규모 업그레이드 버전 실내 보트 라이드 🏴‍☠️" }
+        , { time: "11:10", type: "sight", spotId: "peter_pan_flight", memo: "DPA로 웨이팅 없이 쾌적하게 탑승 🧚 판타지랜드 대기 없이 통과", badge: "DPA" }
+        , { time: "12:00", type: "food", spotId: "barbossa_grille", memo: "점심 + 에어컨 풀가동 휴식 🍔 더우면 손등 도장 찍고 디즈니타운 HEYTEA도 OK" }
+        , { time: "13:30", type: "sight", spotId: "tron_lightcycle", memo: "하루 중 제일 더운 피크타임 - DPA로 실내 돔 직행! 슬리퍼 고정 필수 🏍️", badge: "DPA" }
+        , { time: "14:30", type: "shopping", spotId: "avenue_m_arcade", memo: "다들 기구 타는 시간 = 매장 한산 황금타임 🧸 과자·인형·텀블러 에어컨 바람 쐬며 여유 쇼핑" }
+        , { time: "15:30", type: "food", spotId: "coconut_coffee_disney", memo: "쇼핑백 내려놓고 시원한 음료 한 잔 ☕ 오전 주토피아 영상 확인하며 리프레시", sub: true }
         , { time: "17:00", type: "food", spotId: "tomorrowland_terrace", memo: "불꽃놀이 전에 미리 저녁 - 투모로우랜드 테라스에서" }
-        , { time: "18:00", type: "shopping", spotId: "shop_disney_goods", memo: "불꽃놀이 전 굿즈 쇼핑 끝내기", sub: true }
-        , { time: "20:00", type: "sight", spotId: "disneyland", memo: "일루미네이션 불꽃놀이 관람 - 중간중간 실내에서 휴식 필수" }
+        , { time: "18:00", type: "shopping", spotId: "shop_disney_goods", memo: "불꽃놀이 전 굿즈 쇼핑 마무리", sub: true }
+        , { time: "20:00", type: "sight", spotId: "disneyland", memo: "일루미네이션 불꽃놀이 관람 🎆 중간중간 실내에서 휴식 필수" }
       ]
     }
     , {
