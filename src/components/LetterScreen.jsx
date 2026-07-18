@@ -1,27 +1,27 @@
 import { useEffect, useState } from 'react';
 import { travelData } from '../data/travelData.js';
 
-const LETTER_DURATION_MS = 60 * 60 * 1000; // 편지 노출 시간 - 출발 시각부터 1시간
+const LETTER_DURATION_MS = 4 * 60 * 60 * 1000; // 편지 노출 시간 - letterAt부터 4시간
 const FADE_OUT_MS = 600; // letter-content-out 애니메이션 길이와 맞춤
 
 const LETTER_LINES = [
   'TO 사랑하는 강아지'
-  , '안녕 깡아지! 굿모닝'
-  , '우리의 첫번째 해외여행, 상해여행을 떠나기 전 자기를 위한 작은 선물을 준비했어.'
-  , '뭐가 있을지 궁금해줬으면 좋겠고, 내 선물이 우리의 3박 4일 동안 자기를 더 더 많이 행복하게 만들어주길 바라는 마음으로!'
-  , '언제나 나랑 같이 있는 시간을 행복해해주는 자기 덕분에, 자기와 함께하는 모든 일들을 나 또한 기다리게돼.'
-  , '우리 그동안 진짜 너무 수고 많았어! 이번 여행에서만큼은 다 내려놓고 신나게 놀고, 푹 쉬면서 앞으로 잘 살아갈 힘을 잔뜩 얻어가자.'
-  , '매일 매순간 서로를 사랑하는 시간으로 꽉 채우자! 맛있는거 많이많이 먹고, 같이 땀도 뻘뻘 흘리고, 사진도 영상도 많이많이 찍자.'
-  , '언제나 내편인 똑똑이 강아지 내가 정말정말 대빵 사랑해!'
-  , 'PS. 나 상해 여름 날씨 너무 무서워. 불쾌지수와 우리가 같은편이 돼서 온 몸으로 싸우고 우리는 사이좋게 다녀오자.'
+  , '자기야 안녕~'
+  , '우리가 오래 기다리고 기대했던 상해여행이 아쉽게도 마지막날이 되었네 흐앙'
+  , '엄청 추운 겨울에 비행기를 예매하며, 여름 휴가를 계획할때만해도 올해 7월은 까마득했는데 어느샌가 더운 여름이왔다니 시간이 믿기지가 않는다'
+  , '내가 매번 시간이 너무 빠른거같아! 하면, 그저 우리가 같이하는 시간이 길어지는거라 좋은거라던 자기 말이 이제 나에게도 와닿으며 나도 정말 그렇게 생각하게됐어'
+  , '이번 상해여행은 앞으로 우리가 약속한 무수히 많은 미래들 중에 하루를 의미있게 보낸거라고 생각하며, 아쉽지만 이 시간은 너무너무 행복했던 추억으로 남기고 앞으로 더 행복한 미래를 꿈꾸는 것으로 우리 여행은 마무리해보려고해'
+  , '나흘동안 매 순간 함께해서 말못하게 행복했고, 매일을 함께했지만 더욱 특별한 날들을 선물받은것 같아서 감사했어'
+  , '매번 말하지만, 새삼스레 더 느껴지는건 자기를 만나 나는 정말 매순간 행복해'
+  , '사랑해 자기야, 앞으로도 사랑해'
   , 'FROM 강아지의 멜랑공주'
 ];
 
-const LINE_EMOJI = { 0: '🐶', 7: '❤️', 9: '👑' };
+const LINE_EMOJI = { 0: '🐶', 8: '❤️', 9: '👑' };
 
 /**
- * 출발 시각(travelData.meta.departureAt)이 지나는 순간부터 1시간 동안만 뜨는 깜짝 편지 화면.
- * 그 전엔 안 뜨고(출발 전 체크리스트가 대신 보임), 1시간이 지나면 자동으로 사라져 평소 앱으로 돌아간다.
+ * travelData.meta.letterAt이 지나는 순간부터 4시간 동안만 뜨는 깜짝 편지 화면.
+ * 그 전엔 안 뜨고, 4시간이 지나면 자동으로 사라져 평소 앱으로 돌아간다.
  * 봉투를 눌러야 편지가 열리고, 닫으면 이번 화면을 보는 동안만 닫힘 - 앱을 새로 열면(새로고침해도)
  * 1시간 안이라면 다시 봉투 화면부터 뜬다(닫힘 상태를 저장하지 않음, 세션 한정 state).
  */
@@ -42,7 +42,7 @@ export default function LetterScreen({ checklistDismissed }) {
     return () => clearTimeout(t);
   }, [leaving]);
 
-  const start = new Date(travelData.meta.departureAt).getTime();
+  const start = new Date(travelData.meta.letterAt).getTime();
   const end = start + LETTER_DURATION_MS;
   const inWindow = now >= start && now < end;
 
@@ -73,7 +73,7 @@ export default function LetterScreen({ checklistDismissed }) {
               {LETTER_LINES.map((line, i) => {
                 const isFirst = i === 0;
                 const isLast = i === LETTER_LINES.length - 1;
-                const isPs = i === LETTER_LINES.length - 2;
+                const isClosingLine = i === LETTER_LINES.length - 2;
 
                 if (isFirst || isLast) {
                   const [prefix, ...rest] = line.split(' ');
@@ -86,7 +86,14 @@ export default function LetterScreen({ checklistDismissed }) {
                 }
 
                 return (
-                  <p key={i} className={isPs ? 'text-xs text-gray-400 italic mt-2' : 'text-sm text-gray-700 leading-relaxed'}>
+                  <p
+                    key={i}
+                    className={
+                      isClosingLine
+                        ? 'text-sm font-bold text-rose-500 mt-2'
+                        : 'text-sm text-gray-700 leading-relaxed'
+                    }
+                  >
                     {line}
                     {LINE_EMOJI[i] && <span className="emoji-muted"> {LINE_EMOJI[i]}</span>}
                   </p>
